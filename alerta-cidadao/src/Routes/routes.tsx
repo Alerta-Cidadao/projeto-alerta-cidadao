@@ -21,7 +21,6 @@ export const AppRoutes = () => {
       <Route element={<LoggedRoutes />}>
         <Route path="/dashboard/:userId" element={<UserDashBoardPage />} />
       </Route>
-
     </Routes>
   );
 };

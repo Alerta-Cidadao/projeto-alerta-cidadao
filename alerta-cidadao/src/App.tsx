@@ -1,4 +1,5 @@
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./Components/Header";
 import { ListAllReports } from "./Components/ListAllReports";
 import { AppRoutes } from "./Routes/routes";

@@ -10,7 +10,6 @@ import { Reset } from "./Styles/reset";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-
       <UserProvider>
         <App />
       </UserProvider>
@@ -18,7 +17,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <GlobalStyles />
       <Reset />
       <Index />
-      
     </BrowserRouter>
   </React.StrictMode>
 );
