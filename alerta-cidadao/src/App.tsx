@@ -1,10 +1,13 @@
 import { ToastContainer } from "react-toastify";
+import { Header } from "./Components/Header";
+import { ListAllReports } from "./Components/ListAllReports";
 
 function App() {
   return (
     <div>
+      <Header />
+      <ListAllReports />
 
-      <h1> teste </h1>
       <ToastContainer
         position="top-right"
         autoClose={5000}

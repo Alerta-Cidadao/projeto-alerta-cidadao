@@ -2,40 +2,13 @@ import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { baseURL } from "../Services/fakeApi";
+import { IChildrenProps, ILoginFormData, IRegisterFormData, IReport, IUser,} from "./@types";
 
-export interface IChildrenProps {
-  children: React.ReactNode;
-}
-interface IUser {
-  name: string;
-  url: string;
-}
-interface IReport {
-  title: string;
-  description: string;
-  imag: string;
-  dat: string;
-  problem: string;
-  since: string;
-  email: string;
-  userId: number;
-  id: number;
-}
-interface ILoginFormData {
-  email: string;
-  password: string;
-}
-interface IRegisterFormData {
-  user: string;
-  password: string;
-  email: string;
-  cidade?: string;
-  estado?: string;
-}
 interface IUserContext {
   user: IUser | null;
+  userReports: IReport[];
   reports: IReport[];
-  setReports: React.Dispatch<React.SetStateAction<IReport[]>>;
+  setUserReports: React.Dispatch<React.SetStateAction<IReport[]>>;
   handleSubmitLogin: (formData: ILoginFormData) => void;
   handleSubmitRegister: (formData: IRegisterFormData) => void;
   handleLogout: () => void;
@@ -44,10 +17,23 @@ interface IUserContext {
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IChildrenProps) => {
-  const [user, setUser] = useState({} as IUser | null);
+  const [user, setUser] = useState(null as IUser | null);
+  const [userReports, setUserReports] = useState([] as IReport[]);
   const [reports, setReports] = useState([] as IReport[]);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getReportsList = async () => {
+      try {
+        const response = await baseURL.get(`/reports`);
+        setReports(response.data);
+      } catch (error) {
+        toast.error("error");
+      }
+    };
+    getReportsList();
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("@LOGGEDUSERTOKEN");
@@ -57,7 +43,6 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         try {
           const response = await baseURL.get(`/users/${userId}`);
           setUser(response.data);
-          setReports(response.data.reports);
           navigate("/home");
         } catch (error) {
           toast.error("error");
@@ -74,7 +59,6 @@ export const UserProvider = ({ children }: IChildrenProps) => {
       localStorage.setItem("@USERTOKEN", response.data.token);
       localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);
-      setReports(response.data.user.reports);
       toast.update(toastLogin, {
         render: `Bem vindo ${response.data.user.name}`,
         type: "success",
@@ -123,13 +107,14 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     setUser(null);
     navigate("/");
   };
-
+  
   return (
     <UserContext.Provider
       value={{
-        user,
         reports,
-        setReports,
+        user,
+        userReports,
+        setUserReports,
         handleSubmitLogin,
         handleSubmitRegister,
         handleLogout,
