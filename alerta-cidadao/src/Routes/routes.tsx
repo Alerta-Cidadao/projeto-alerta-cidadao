@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../Pages/HomePage";
 import { LoggedRoutes } from "../Pages/LoggedRoutes";
 import { LoginPage } from "../Pages/LoginPage";
-import { NewReportPage } from "../Pages/NewReport";
+import { NewReportPage } from "../Pages/NewReportPage";
 import { RegisterPage } from "../Pages/RegisterPage";
 import { ReportPage } from "../Pages/ReportPage";
 import { UnloggedRoutes } from "../Pages/UnloggedRoutes";
