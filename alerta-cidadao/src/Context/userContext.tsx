@@ -7,9 +7,10 @@ import { IChildrenProps, ILoginFormData, IRegisterFormData, IReport, IUser,} fro
 interface IUserContext {
   user: IUser | null;
   reports: IReport[];
-  handleSubmitLogin: (formData: ILoginFormData) => void;
-  handleSubmitRegister: (formData: IRegisterFormData) => void;
+  handleSubmitLogin: (formData: ILoginFormData) => Promise<void>;
+  handleSubmitRegister: (formData: IRegisterFormData) => Promise<void>;
   handleLogout: () => void;
+  handleSubmitNewReport: (formData:IReport) => Promise<void>;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -111,6 +112,37 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     navigate("/home");
   };
   
+
+  const handleSubmitNewReport = async (formData:IReport) =>{
+    const userId = localStorage.getItem("@USERID");
+    const token = localStorage.getItem("@USERTOKEN");
+   
+    const toastNewReport = toast.loading("Efetuando cadastro");
+    try {
+      const response = await baseURL.post("/reports", formData,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+      toast.update(toastNewReport, {
+        render: "Reclamação registrada!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+      console.log(response)
+      setReports([...reports, response.data])
+    } catch (error) {
+      toast.update(toastNewReport, {
+        render: "Erro ao efetuar a reclamação confira as informações e tente novamente.",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+    }
+  }
   return (
     <UserContext.Provider
       value={{
@@ -119,6 +151,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         handleSubmitLogin,
         handleSubmitRegister,
         handleLogout,
+        handleSubmitNewReport
       }}
     >
       {children}
