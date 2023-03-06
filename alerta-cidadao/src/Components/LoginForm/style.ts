@@ -1,4 +1,3 @@
 import styled from "styled-components";
 
-export const StyledLoginForm = styled.div`
-`
+export const StyledLoginForm = styled.form``;

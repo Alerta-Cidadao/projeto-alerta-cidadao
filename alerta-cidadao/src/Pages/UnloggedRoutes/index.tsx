@@ -1,10 +1,12 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom'
 import { StyledUnloggedRoutes } from './style'
 
 export const UnloggedRoutes = () => {
+
+  console.log( 'estou no unloggedroutes ')
   return (
     <StyledUnloggedRoutes>
-        <h1>  Outlet que contenha o header dos deslogados!!   </h1>
+        <Outlet/>
     </StyledUnloggedRoutes>
   )
 }
