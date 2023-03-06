@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import { Header } from "./Components/Header";
 import { ListAllReports } from "./Components/ListAllReports";
+import { AppRoutes } from "./Routes/routes";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <ListAllReports />
 
+      <AppRoutes />
       <ToastContainer
         position="top-right"
         autoClose={5000}

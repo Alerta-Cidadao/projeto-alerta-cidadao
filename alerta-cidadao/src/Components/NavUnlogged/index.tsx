@@ -6,8 +6,8 @@ import { StyledNavUnLogged } from './style'
 export const NavUnlogged = () => {
   return (
     <StyledNavUnLogged>
-      <Link to='/register'> teste </Link>
-      <button> Cadastrar </button>
+      <Link to='/register'> register </Link>
+      <Link to='/login'> login </Link>
     </StyledNavUnLogged>
   )
 }
