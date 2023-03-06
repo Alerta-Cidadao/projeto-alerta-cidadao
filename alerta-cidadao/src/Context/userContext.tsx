@@ -6,9 +6,7 @@ import { IChildrenProps, ILoginFormData, IRegisterFormData, IReport, IUser,} fro
 
 interface IUserContext {
   user: IUser | null;
-  userReports: IReport[];
   reports: IReport[];
-  setUserReports: React.Dispatch<React.SetStateAction<IReport[]>>;
   handleSubmitLogin: (formData: ILoginFormData) => void;
   handleSubmitRegister: (formData: IRegisterFormData) => void;
   handleLogout: () => void;
@@ -18,7 +16,6 @@ export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IChildrenProps) => {
   const [user, setUser] = useState(null as IUser | null);
-  const [userReports, setUserReports] = useState([] as IReport[]);
   const [reports, setReports] = useState([] as IReport[]);
 
   const navigate = useNavigate();
@@ -56,7 +53,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
       autoLogin();
     }
   }, []);
-
+  
   const handleSubmitLogin = async (formData: ILoginFormData) => {
     const toastLogin = toast.loading("Efetuando login");
     try {
@@ -111,7 +108,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     localStorage.removeItem("@USERTOKEN");
     localStorage.removeItem("@USERID");
     setUser(null);
-    navigate("/");
+    navigate("/home");
   };
   
   return (
@@ -119,8 +116,6 @@ export const UserProvider = ({ children }: IChildrenProps) => {
       value={{
         reports,
         user,
-        userReports,
-        setUserReports,
         handleSubmitLogin,
         handleSubmitRegister,
         handleLogout,
