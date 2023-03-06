@@ -10,7 +10,7 @@ import { UserDashBoardPage } from "../Pages/UserDashBoard";
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<UnloggedRoutes />}>
+      <Route element={<UnloggedRoutes />}>
         <Route index element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -19,10 +19,9 @@ export const AppRoutes = () => {
 
       <Route path="/" element={<LoggedRoutes />}>
         <Route index element={<HomePage />} />
-        <Route path="/dashboard/:userId" element={<UserDashBoardPage />}/>
+        <Route path="/dashboard/:userId" element={<UserDashBoardPage />} />
         <Route path="/report-page/:reportId" element={<ReportPage />} />
       </Route>
-
     </Routes>
   );
 };

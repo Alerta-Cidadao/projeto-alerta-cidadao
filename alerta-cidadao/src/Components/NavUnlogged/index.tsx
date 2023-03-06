@@ -1,15 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { StyledNavUnLogged } from './style'
-
+import { Link } from "react-router-dom";
+import { StyledNavUnLogged } from "./style";
 
 export const NavUnlogged = () => {
   return (
     <StyledNavUnLogged>
-      <Link to='/register'> teste </Link>
-      <button> Cadastrar </button>
+      <Link to="/login">Logar</Link>
+      <Link to="/register">Cadastrar</Link>
     </StyledNavUnLogged>
-  )
-}
-
-
+  );
+};
