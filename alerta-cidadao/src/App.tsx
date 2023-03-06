@@ -1,17 +1,12 @@
 import { ToastContainer } from "react-toastify";
 import { Header } from "./Components/Header";
-import { ReportCard } from "./Components/ReportCard";
+import { ListAllReports } from "./Components/ListAllReports";
 
 function App() {
-  const random = [1, 2, 3, 4, 5];
   return (
     <div>
       <Header />
-      <ul>
-        {random.map((random) => (
-          <ReportCard />
-        ))}
-      </ul>
+      <ListAllReports />
 
       <ToastContainer
         position="top-right"
