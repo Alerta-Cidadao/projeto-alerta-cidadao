@@ -1,2 +1,2 @@
 # Alerta cidadao
-O projeto visa trazer clareza ao cidadão na hora de exigir seus direitos, assim como informar ao Estado quais são os problemas que o cidadão vem encontrado e enfrentado.
+O projeto tem como objetivo propiciar mais clareza ao cidadão no momento de demandar seus direitos, além de fornecer informações ao Estado acerca das dificuldades que o cidadão vem enfrentando.
