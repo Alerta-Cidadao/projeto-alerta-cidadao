@@ -1,10 +1,10 @@
-import React from 'react'
+import { ListAllReports } from '../../Components/ListAllReports'
 import { StyledHomePage } from './style'
 
 export const HomePage = () => {
   return (
     <StyledHomePage>
-        <h1> Estrutura da home page </h1>
+        <h1> Estrutura home-page </h1>
     </StyledHomePage>
   )
 }

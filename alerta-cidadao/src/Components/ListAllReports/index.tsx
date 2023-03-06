@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { UserContext } from '../../Context/userContext'
 import { ReportCard } from '../ReportCard'
 import { StyledListAllReports } from './style'

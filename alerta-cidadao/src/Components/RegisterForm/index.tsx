@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledRegisterForm } from './style'
 
 export const RegisterForm = () => {
@@ -8,4 +7,3 @@ export const RegisterForm = () => {
     </StyledRegisterForm>
   )
 }
-

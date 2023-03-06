@@ -1,10 +1,22 @@
-import React from 'react'
 import { StyledHeader } from './style'
-
+import logoImg from '../../assets/logo-header.svg'
+import { NavUnlogged } from '../NavUnlogged'
+import { NavLogged } from '../NavLogged'
+import { useContext } from 'react'
+import { UserContext } from '../../Context/userContext'
 export const Header = () => {
+
+  const {user} =  useContext(UserContext)
+  
   return (
     <StyledHeader>
-        <h1> este é o header </h1>
+        <img src={logoImg} alt="" />
+        {
+          user ?
+          <NavLogged/>
+          :
+          <NavUnlogged/>
+        }
     </StyledHeader>
   )
 }
