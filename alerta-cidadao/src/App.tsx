@@ -1,10 +1,18 @@
 import { ToastContainer } from "react-toastify";
+import { Header } from "./Components/Header";
+import { ReportCard } from "./Components/ReportCard";
 
 function App() {
+  const random = [1, 2, 3, 4, 5];
   return (
     <div>
+      <Header />
+      <ul>
+        {random.map((random) => (
+          <ReportCard />
+        ))}
+      </ul>
 
-      <h1> teste </h1>
       <ToastContainer
         position="top-right"
         autoClose={5000}
