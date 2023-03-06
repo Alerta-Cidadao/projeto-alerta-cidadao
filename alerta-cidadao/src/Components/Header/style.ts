@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   justify-content: space-around;
   img {
     width: 5rem;
+    cursor: pointer;
   }
   nav{
     display: flex;
