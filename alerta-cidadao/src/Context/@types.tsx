@@ -1,29 +1,32 @@
 export interface IChildrenProps {
-    children: React.ReactNode;
-  }
+  children: React.ReactNode;
+}
 export interface IUser {
-    name: string;
-    url: string;
-  }
+  id: number;
+  email: string;
+  name: string;
+  cidade?: string;
+  estado?: string;
+}
 export interface IReport {
-    title: string;
-    description: string;
-    img: string;
-    date: string;
-    problem: string;
-    since: string;
-    email: string;
-    userId: number;
-    id: number;
-  }
+  title: string;
+  description: string;
+  img: string;
+  date: string;
+  problem: string;
+  since: string;
+  email: string;
+  userId: number;
+  id: number;
+}
 export interface ILoginFormData {
-    email: string;
-    password: string;
-  }
+  email: string;
+  password: string;
+}
 export interface IRegisterFormData {
-    user: string;
-    password: string;
-    email: string;
-    cidade?: string;
-    estado?: string;
-  }
+  name: string;
+  password: string;
+  email: string;
+  cidade?: string;
+  estado?: string;
+}

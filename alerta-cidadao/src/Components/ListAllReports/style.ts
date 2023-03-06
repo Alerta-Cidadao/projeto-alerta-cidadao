@@ -6,6 +6,5 @@ flex-direction: column;
 gap: 1rem;
 
 width: fit-content;
-background-color: red;
 margin: 1rem auto;
 `
