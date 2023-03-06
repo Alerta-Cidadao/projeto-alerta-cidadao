@@ -4,8 +4,10 @@ import { StyledNavUnLogged } from "./style";
 export const NavUnlogged = () => {
   return (
     <StyledNavUnLogged>
+      <Link to="/new-report"> New Report </Link>
       <Link to="/login">Logar</Link>
       <Link to="/register">Cadastrar</Link>
+      
     </StyledNavUnLogged>
   );
 };
