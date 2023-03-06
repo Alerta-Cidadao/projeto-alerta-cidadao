@@ -22,6 +22,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
   const [reports, setReports] = useState([] as IReport[]);
 
   const navigate = useNavigate();
+ 
 
   useEffect(() => {
     const getReportsList = async () => {
@@ -36,16 +37,20 @@ export const UserProvider = ({ children }: IChildrenProps) => {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("@LOGGEDUSERTOKEN");
+    const token = localStorage.getItem("@USERTOKEN");
     const userId = localStorage.getItem("@USERID");
     if (token) {
       const autoLogin = async () => {
         try {
-          const response = await baseURL.get(`/users/${userId}`);
+          const response = await baseURL.get(`/users/${userId}`,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
+          } );
           setUser(response.data);
           navigate("/home");
         } catch (error) {
-          toast.error("error");
+          toast.error("autologin falhou");
         }
       };
       autoLogin();
@@ -56,7 +61,8 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     const toastLogin = toast.loading("Efetuando login");
     try {
       const response = await baseURL.post("/login", formData);
-      localStorage.setItem("@USERTOKEN", response.data.token);
+      console.log(response)
+      localStorage.setItem("@USERTOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);
       toast.update(toastLogin, {
