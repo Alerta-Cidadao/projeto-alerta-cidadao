@@ -46,7 +46,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
             }
           } );
           setUser(response.data);
-          navigate("/home");
+          navigate("/");
         } catch (error) {
           toast.error("autologin falhou");
         }
@@ -70,7 +70,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         autoClose: 3000,
         closeOnClick: true,
       });
-      navigate(`/home`);
+      navigate(`/`);
     } catch (error) {
       toast.update(toastLogin, {
         render: `Erro ao efetuar o login reveja suas informações`,
@@ -109,7 +109,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     localStorage.removeItem("@USERTOKEN");
     localStorage.removeItem("@USERID");
     setUser(null);
-    navigate("/home");
+    navigate("/");
   };
   
 
