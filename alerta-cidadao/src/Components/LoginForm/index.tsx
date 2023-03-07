@@ -6,6 +6,7 @@ import { Input } from "../Input";
 import { ILoginFormData } from "../../Context/@types";
 import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
+import Button from "@mui/material/Button";
 
 export const LoginForm = () => {
   const { handleSubmitLogin } = useContext(UserContext);
@@ -35,7 +36,7 @@ export const LoginForm = () => {
         register={register("password")}
         error={errors.password}
       />
-      <button type="submit">Logar</button>
+      <Button type="submit" variant="contained">Logar</Button>
     </StyledLoginForm>
   );
 };

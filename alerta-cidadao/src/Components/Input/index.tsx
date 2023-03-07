@@ -1,3 +1,4 @@
+import TextField from "@mui/material/TextField";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput } from "./style";
 
@@ -18,13 +19,9 @@ export function Input({
 }: IInputProps) {
   return (
     <StyledInput>
-      {label && <label htmlFor={register.name}>{label}</label>}
-      <input
-        type={type}
-        id={register.name}
-        placeholder={placeholder}
-        {...register}
-      />
+      
+      <TextField type={type} id={register.name} label={placeholder} variant="outlined" {...register} />
+      
       {error && <p className="helperText">{error.message}</p>}
     </StyledInput>
   );

@@ -7,7 +7,7 @@ import { IRegisterFormData } from "../../Context/@types";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/userContext";
 import axios from "axios";
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 interface IUf {
   id: number;
@@ -132,8 +132,8 @@ export const RegisterForm = () => {
           </Select>
         </FormControl>
       </div>
-
-      <button type="submit">Cadastrar</button>
+      <Button type="submit" variant="contained">Cadastrar</Button>
+      
     </StyledRegisterForm>
   );
 };
