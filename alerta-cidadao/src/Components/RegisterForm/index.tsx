@@ -7,6 +7,7 @@ import { IRegisterFormData } from "../../Context/@types";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/userContext";
 import axios from "axios";
+import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 interface IUf {
   id: number;
@@ -36,6 +37,7 @@ export const RegisterForm = () => {
   const [ufs, setUfs] = useState<IUf[]>([]);
   const [municipios, setMunicipios] = useState<IMunicipio[]>([]);
   const [selectedUF, setSelectedUf] = useState("0");
+  const [selectedCity, setSelectedCity] = useState("0");
 
   useEffect(() => {
     axios
@@ -85,28 +87,52 @@ export const RegisterForm = () => {
         register={register("confirmPassword")}
         error={errors.confirmPassword}
       />
-      <select
-        id="uf"
-        {...register("estado")}
-        onChange={(event) => {
-          setSelectedUf(event?.currentTarget.value);
-        }}
-      >
-        <option value="0">Selecione seu estado</option>
-        {ufs.map((uf) => (
-          <option key={uf.id} value={uf.sigla}>
-            {uf.nome}
-          </option>
-        ))}
-      </select>
-      <select id="city" {...register("cidade")}>
-        <option value="0">Selecione sua cidade</option>
-        {municipios.map((municipio) => (
-          <option key={municipio.id} value={municipio.nome}>
-            {municipio.nome}
-          </option>
-        ))}
-      </select>
+
+      <div className="select-location">
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Estado</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="uf"
+            {...register("estado")}
+            value={selectedUF}
+            label="Estado"
+            onChange={(event) => {
+              setSelectedUf(event.target.value);
+            }}
+          >
+            <MenuItem value="0">Selecione seu estado</MenuItem>
+            {ufs.map((uf) => (
+              <MenuItem key={uf.id} value={uf.sigla}>
+                {uf.nome}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label"> Cidade </InputLabel>
+          <Select
+            id="city"
+            label="Cidade"
+            {...register("cidade")}
+            value={selectedCity}
+            onChange={(event) => {
+              setSelectedCity(event.target.value);
+            }}
+          >
+            <MenuItem value="0" hidden>
+              Selecione sua cidade
+            </MenuItem>
+            {municipios.map((municipio) => (
+              <MenuItem key={municipio.id} value={municipio.nome}>
+                {municipio.nome}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+
       <button type="submit">Cadastrar</button>
     </StyledRegisterForm>
   );
