@@ -7,7 +7,7 @@ import { StyledReportPage } from './style'
 
 export const ReportPage = () => {
   const [report, setReport] = useState({} as IReport)
-  const [comments, setComments] = useState({} as IComment)
+  const [comments, setComments] = useState([] as IComment[])
   const {reportId} = useParams()
 
   useEffect(() => {
@@ -34,7 +34,6 @@ export const ReportPage = () => {
     getCommentsOfSpecificReport();
   }, []);
 
-  console.log(comments)
   return (
     <StyledReportPage>
         {
