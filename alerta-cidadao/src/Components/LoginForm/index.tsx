@@ -9,16 +9,17 @@ import { UserContext } from "../../Context/userContext";
 import Button from "@mui/material/Button";
 
 export const LoginForm = () => {
-  const { handleSubmitLogin } = useContext(UserContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ILoginFormData>({ resolver: yupResolver(schemaLoginForm) });
+    const { handleSubmitLogin } = useContext(UserContext);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<ILoginFormData>({ resolver: yupResolver(schemaLoginForm) });
 
-  const submitLogin: SubmitHandler<ILoginFormData> = (formData) => {
-    handleSubmitLogin(formData);
-  };
+    const submitLogin: SubmitHandler<ILoginFormData> = (formData) => {
+        handleSubmitLogin(formData);
+    };
+
 
   return (
     <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>

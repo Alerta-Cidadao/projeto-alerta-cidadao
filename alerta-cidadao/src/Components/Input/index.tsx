@@ -3,20 +3,21 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput } from "./style";
 
 interface IInputProps {
-  label: string;
-  placeholder: string;
-  type: "text" | "email" | "password" | "number";
-  register: UseFormRegisterReturn<string>;
-  error?: FieldError;
+    label: string;
+    placeholder: string;
+    type: "text" | "email" | "password" | "number";
+    register: UseFormRegisterReturn<string>;
+    error?: FieldError;
 }
 
 export function Input({
-  type,
-  label,
-  placeholder,
-  register,
-  error,
+    type,
+    label,
+    placeholder,
+    register,
+    error,
 }: IInputProps) {
+
   return (
     <StyledInput>
       
