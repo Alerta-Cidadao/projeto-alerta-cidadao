@@ -6,6 +6,7 @@ import { Input } from "../Input";
 import { ILoginFormData } from "../../Context/@types";
 import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
+import Button from "@mui/material/Button";
 
 export const LoginForm = () => {
     const { handleSubmitLogin } = useContext(UserContext);
@@ -19,23 +20,24 @@ export const LoginForm = () => {
         handleSubmitLogin(formData);
     };
 
-    return (
-        <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
-            <Input
-                label="Email"
-                type="email"
-                placeholder="Digite seu email"
-                register={register("email")}
-                error={errors.email}
-            />
-            <Input
-                label="Senha"
-                type="password"
-                placeholder="Digite sua senha"
-                register={register("password")}
-                error={errors.password}
-            />
-            <button type="submit">Logar</button>
-        </StyledLoginForm>
-    );
+
+  return (
+    <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
+      <Input
+        label="Email"
+        type="email"
+        placeholder="Digite seu email"
+        register={register("email")}
+        error={errors.email}
+      />
+      <Input
+        label="Senha"
+        type="password"
+        placeholder="Digite sua senha"
+        register={register("password")}
+        error={errors.password}
+      />
+      <Button type="submit" variant="contained">Logar</Button>
+    </StyledLoginForm>
+  );
 };
