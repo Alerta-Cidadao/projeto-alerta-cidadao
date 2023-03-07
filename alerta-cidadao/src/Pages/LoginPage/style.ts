@@ -7,6 +7,4 @@ export const StyledLoginPage = styled.main`
     height: 100vh;
 
     padding-top: 102px;
-
-    background-color: var(--color-900);
 `;

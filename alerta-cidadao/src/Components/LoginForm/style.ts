@@ -12,12 +12,4 @@ export const StyledLoginForm = styled.form`
 
     background-color: var(--color-300);
 
-    button {
-        width: 400px;
-        height: 63px;
-
-        background: var(--color-700);
-        border: 0;
-        border-radius: 25px;
-    }
 `;

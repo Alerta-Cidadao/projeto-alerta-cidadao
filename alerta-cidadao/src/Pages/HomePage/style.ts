@@ -8,5 +8,5 @@ export const StyledHomePage = styled.main`
 
     padding-top: 102px;
 
-    background-color: var(--color-900);
+    background-color: var(--color-primary);
 `;

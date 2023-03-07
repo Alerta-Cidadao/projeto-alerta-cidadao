@@ -1,13 +1,15 @@
 import TextField from "@mui/material/TextField";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { StyledInput } from "./style";
+import { StyledInput, StyledTextField } from "./style";
 
 interface IInputProps {
     label: string;
     placeholder: string;
-    type: "text" | "email" | "password" | "number";
+    type?: "text" | "email" | "password" | "number";
     register: UseFormRegisterReturn<string>;
     error?: FieldError;
+    multiline?: boolean;
+    rows?: number;
 }
 
 export function Input({
@@ -16,14 +18,23 @@ export function Input({
     placeholder,
     register,
     error,
+    multiline,
+    rows,
 }: IInputProps) {
-
-  return (
-    <StyledInput>
-      
-      <TextField type={type} id={register.name} label={placeholder} variant="outlined" {...register} />
-      
-      {error && <p className="helperText">{error.message}</p>}
-    </StyledInput>
-  );
+    return (
+        <StyledInput>
+            <StyledTextField
+                type={type}
+                id={register.name}
+                label={placeholder}
+                variant="outlined"
+                {...register}
+                multiline={multiline}
+                rows={rows}
+                color="primary"
+                sx={{ borderColor: "background.default" }}
+            />
+            {error && <p className="helperText">{error.message}</p>}
+        </StyledInput>
+    );
 }

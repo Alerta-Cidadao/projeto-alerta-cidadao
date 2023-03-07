@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import styled from "styled-components";
 
 export const StyledInput = styled.fieldset`
@@ -5,11 +6,14 @@ export const StyledInput = styled.fieldset`
     flex-direction: column;
     gap: 10px;
 
-    input {
-        height: 61px;
-
-        background-color: var(--color-500);
-        border: 0;
-        border-radius: 25px;
-    }
 `;
+
+export const StyledTextField = styled(TextField)`
+
+    background-color: var(--color-grey-500);
+    color:var(--color-grey-0) ;
+    border-radius: 5px;
+    .MuiOutlinedInput-notchedOutline{
+        border-color: var(--color-grey-0);
+    }
+`

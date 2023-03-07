@@ -2,17 +2,17 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
-        --color-900: #9EE7AB;
-        --color-700: #B6EDC0;
-        --color-500: #CFF3D5;
-        --color-300: #E7F9EA;
-        --color-100: #FFFFFF;
-    
-        --color-grey-900:  #121214; 
-        --color-grey-700: #212529;
-        --color-grey-500: #343B41;
+        --color-primary-darker:#591515;
+        --color-primary:#8C251C;
+        --color-secondary:#F25050;
+        --color-primary-lighter:#F2958C;
+        
+        --color-grey-900:#121214; 
+        --color-grey-700:#212529;
+        --color-grey-500:#343B41;
         --color-grey-300:#868E96;
         --color-grey-100:#F8F9FA;
+        --color-grey-0:#FFFFFF;
 
         --color-negative:#E83F5B;
         --color-warning:#FFCD07;
@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-information:#155BCB;
         --radius-default: 0.5rem;
         
-        --font-family: "Inter", sans-serif;
+        --font-family: "Roboto", sans-serif;
     
         --font-size-big:1.125rem;
         --font-size-medium:1rem;
@@ -31,4 +31,8 @@ export const GlobalStyles = createGlobalStyle`
         --font-weight-medium:600;
         --font-weight-bold:800;
     }
+
+    .MuiList-root{
+    background-color: var(--color-grey-700);
+}
     `;

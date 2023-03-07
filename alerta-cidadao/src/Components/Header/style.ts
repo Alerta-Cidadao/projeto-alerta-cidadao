@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
-    height: 102px;
+    width: 100vw;
+    padding: 0.6rem 5rem;
+    
+    background-color: var(--color-grey-900);
+    font-family: var(--font-family);
 
-    border-bottom: 2px solid black;
-
-    background-color: var(--color--100);
+    position: fixed;
+    top: 0;
+    z-index: 2;
 
     img {
         width: 5rem;
@@ -21,17 +25,16 @@ export const StyledHeader = styled.header`
         gap: 1rem;
 
         a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            color: var(--color-grey-100);
             text-decoration: none;
+            background-color: var(--color-primary);
 
-            width: 100px;
-            height: 48px;
-
-            background-color: #cff3d5;
-            border-radius: 25px;
+            padding: 0.3rem 1.5rem;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: var(--color-secondary);
+            box-shadow: 0px 0px 10px var(--color-secondary);
         }
     }
 `;

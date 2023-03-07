@@ -20,7 +20,6 @@ export const LoginForm = () => {
         handleSubmitLogin(formData);
     };
 
-
   return (
     <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
       <Input
