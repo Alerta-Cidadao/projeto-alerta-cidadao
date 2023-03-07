@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export const StyledListAllReports = styled.div`
-display: flex;
-flex-direction: column;
-gap: 1rem;
+export const StyledListAllReports = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 
-width: fit-content;
-margin: 1rem auto;
-`
+    width: 440px;
+    max-height: 680px;
+
+    background-color: var(--color-300);
+`;
