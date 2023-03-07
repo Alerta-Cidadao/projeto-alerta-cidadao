@@ -7,4 +7,11 @@ export const StyledReportCard = styled.li`
     padding: 0.5rem;
     width: 40rem;
     max-width: 100%;
+
+    cursor: pointer;
+
+    &&:hover{
+        filter: brightness(1.1);
+        box-shadow: 0px 0px 10px var(--color-grey-1);
+    }
 `
