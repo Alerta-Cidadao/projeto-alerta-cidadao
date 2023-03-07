@@ -1,4 +1,4 @@
 import styled from "styled-components";
 
-export const StyledRegisterForm = styled.div`
+export const StyledRegisterForm = styled.form`
 `

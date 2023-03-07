@@ -9,7 +9,7 @@ export const NavLogged = () => {
 
   return (
     <StyledNavLogged>
-      <Link to="/home"> Home </Link>
+      <Link to="/"> Home </Link>
       <Link to="/new-report"> New Report </Link>
       <Link to={`/dashboard/${user && user.id}`}> Perfil </Link>
       <button onClick={()=>handleLogout()}>  Logout </button>

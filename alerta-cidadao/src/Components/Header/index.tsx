@@ -11,7 +11,7 @@ export const Header = () => {
   const navigate = useNavigate()
 
   const goToHome = ()=>{
-    navigate('/home')
+    navigate('/')
   }
 
   return (
