@@ -36,7 +36,7 @@ export interface ILoginFormData {
 export interface IRegisterFormData {
   name: string;
   password: string;
-  confirmpassword: string;
+  confirmPassword: string;
   email: string;
   cidade?: string;
   estado?: string;

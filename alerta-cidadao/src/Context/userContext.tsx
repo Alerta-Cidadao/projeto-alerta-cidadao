@@ -1,8 +1,14 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { baseURL } from "../Services/fakeApi";
-import { IChildrenProps, ILoginFormData, IRegisterFormData, IReport, IUser,} from "./@types";
+import {
+  IChildrenProps,
+  ILoginFormData,
+  IRegisterFormData,
+  IReport,
+  IUser,
+} from "./@types";
 
 interface IUserContext {
   user: IUser | null;
@@ -10,7 +16,7 @@ interface IUserContext {
   handleSubmitLogin: (formData: ILoginFormData) => Promise<void>;
   handleSubmitRegister: (formData: IRegisterFormData) => Promise<void>;
   handleLogout: () => void;
-  handleSubmitNewReport: (formData:IReport) => Promise<void>;
+  handleSubmitNewReport: (formData: IReport) => Promise<void>;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -20,46 +26,45 @@ export const UserProvider = ({ children }: IChildrenProps) => {
   const [reports, setReports] = useState([] as IReport[]);
 
   const navigate = useNavigate();
- 
 
-  useEffect(() => {
-    const getReportsList = async () => {
-      try {
-        const response = await baseURL.get(`/reports`);
-        setReports(response.data);
-      } catch (error) {
-        toast.error("error");
-      }
-    };
-    getReportsList();
-  }, []);
+  const getReportsList = async () => {
+    try {
+      const response = await baseURL.get(`/reports`);
+      setReports(response.data);
+    } catch (error) {
+      console.error("error");
+    }
+  };
+
+  const autoLogin = async (userId: string | null, token: string) => {
+    try {
+      const response = await baseURL.get(`/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUser(response.data);
+      navigate("/");
+    } catch (error) {
+      localStorage.removeItem("@USERTOKEN");
+      localStorage.removeItem("@USERID");
+    }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("@USERTOKEN");
     const userId = localStorage.getItem("@USERID");
     if (token) {
-      const autoLogin = async () => {
-        try {
-          const response = await baseURL.get(`/users/${userId}`,{
-            headers: {
-              Authorization: `Bearer ${token}`,
-            }
-          } );
-          setUser(response.data);
-          navigate("/");
-        } catch (error) {
-          toast.error("autologin falhou");
-        }
-      };
-      autoLogin();
+      autoLogin(userId, token);
     }
+    getReportsList();
   }, []);
-  
+
   const handleSubmitLogin = async (formData: ILoginFormData) => {
     const toastLogin = toast.loading("Efetuando login");
     try {
       const response = await baseURL.post("/login", formData);
-      console.log(response)
+      console.log(response);
       localStorage.setItem("@USERTOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);
@@ -111,18 +116,17 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     setUser(null);
     navigate("/");
   };
-  
 
-  const handleSubmitNewReport = async (formData:IReport) =>{
+  const handleSubmitNewReport = async (formData: IReport) => {
     const userId = localStorage.getItem("@USERID");
     const token = localStorage.getItem("@USERTOKEN");
-   
+
     const toastNewReport = toast.loading("Efetuando cadastro");
     try {
-      const response = await baseURL.post("/reports", formData,{
+      const response = await baseURL.post("/reports", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       toast.update(toastNewReport, {
         render: "Reclamação registrada!",
@@ -131,18 +135,19 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         autoClose: 3000,
         closeOnClick: true,
       });
-      console.log(response)
-      setReports([...reports, response.data])
+      console.log(response);
+      setReports([...reports, response.data]);
     } catch (error) {
       toast.update(toastNewReport, {
-        render: "Erro ao efetuar a reclamação confira as informações e tente novamente.",
+        render:
+          "Erro ao efetuar a reclamação confira as informações e tente novamente.",
         type: "error",
         isLoading: false,
         autoClose: 3000,
         closeOnClick: true,
       });
     }
-  }
+  };
   return (
     <UserContext.Provider
       value={{
@@ -151,7 +156,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         handleSubmitLogin,
         handleSubmitRegister,
         handleLogout,
-        handleSubmitNewReport
+        handleSubmitNewReport,
       }}
     >
       {children}
