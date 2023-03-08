@@ -35,6 +35,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .MuiList-root{
-    background-color: var(--color-grey-700);
+    background-color: var(--color-primary-darker) !important;
+}
+.MuiButtonBase-root{
+    background-color: var(--color-primary-darker) !important;
 }
     `;
