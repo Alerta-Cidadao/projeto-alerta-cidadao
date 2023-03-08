@@ -22,7 +22,6 @@ export interface IReport {
 }
 
 export interface IComment {
-  map(arg0: (comment: IComment) => JSX.Element): import("react").ReactNode;
   body: string;
   id: number;
   reportId: number;
@@ -33,6 +32,7 @@ export interface ILoginFormData {
   email: string;
   password: string;
 }
+
 export interface IRegisterFormData {
   name: string;
   password: string;
@@ -41,3 +41,10 @@ export interface IRegisterFormData {
   cidade?: string;
   estado?: string;
 }
+
+export interface ICommentFormData {
+  body: string;
+  reportId:number;
+  userId:number;
+}
+

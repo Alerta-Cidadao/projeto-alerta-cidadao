@@ -3,7 +3,7 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput, StyledTextField } from "./style";
 
 interface IInputProps {
-    label: string;
+    label?: string;
     placeholder: string;
     type?: "text" | "email" | "password" | "number";
     register: UseFormRegisterReturn<string>;
