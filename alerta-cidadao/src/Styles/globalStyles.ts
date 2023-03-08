@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
         --border-radius-default:5px;
         --color-negative:#E83F5B;
         --color-warning:#FFCD07;
-        --color-succes:#3FE864;
+        --color-success:#3FE864;
         --color-information:#155BCB;
         --radius-default: 0.5rem;
         

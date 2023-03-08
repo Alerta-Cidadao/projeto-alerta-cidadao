@@ -7,38 +7,31 @@ import { IComment, ICommentFormData, IReport } from "../../Context/@types";
 import { baseURL } from "../../Services/fakeApi";
 import { StyledReportPage } from "./style";
 
-export interface ICommentFunction {
-    handleSubmitComment: (formData: ICommentFormData) => Promise<void>;
-}
-
 export const ReportPage = () => {
     const [report, setReport] = useState({} as IReport);
     const [comments, setComments] = useState([] as IComment[]);
     const { reportId } = useParams();
 
-    useEffect(() => {
-        const getReportData = async () => {
-            try {
-                const response = await baseURL.get(`/reports/${reportId}`);
-                setReport(response.data);
-            } catch (error) {
-                toast.error("error");
-            }
-        };
-        getReportData();
-    }, []);
+    const getReportData = async () => {
+        try {
+            const response = await baseURL.get(`/reports/${reportId}`);
+            setReport(response.data);
+        } catch (error) {
+            toast.error("error");
+        }
+    };
+
+    const getCommentsOfSpecificReport = async () => {
+        try {
+            const response = await baseURL.get(`/reports/${reportId}/comments`);
+            setComments(response.data);
+        } catch (error) {
+            toast.error("error");
+        }
+    };
 
     useEffect(() => {
-        const getCommentsOfSpecificReport = async () => {
-            try {
-                const response = await baseURL.get(
-                    `/reports/${reportId}/comments`
-                );
-                setComments(response.data);
-            } catch (error) {
-                toast.error("error");
-            }
-        };
+        getReportData();
         getCommentsOfSpecificReport();
     }, []);
 
@@ -81,7 +74,7 @@ export const ReportPage = () => {
                 ))}
 
             <CommentForm
-                handleSubmitComment={() => handleSubmitComment}
+                handleSubmitComment={handleSubmitComment}
                 idReport={reportId}
             />
         </StyledReportPage>

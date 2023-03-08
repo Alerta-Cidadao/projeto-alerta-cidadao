@@ -1,4 +1,6 @@
+import { red } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
+
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput, StyledTextField } from "./style";
 
@@ -26,7 +28,8 @@ export function Input({
             <StyledTextField
                 type={type}
                 id={register.name}
-                label={placeholder}
+                label={label}
+                placeholder={placeholder}
                 variant="outlined"
                 {...register}
                 multiline={multiline}
