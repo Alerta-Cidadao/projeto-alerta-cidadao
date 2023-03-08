@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
 
         --color-negative:#E83F5B;
         --color-warning:#FFCD07;
-        --color-succes:#3FE864;
+        --color-success:#3FE864;
         --color-information:#155BCB;
         --radius-default: 0.5rem;
         
@@ -30,5 +30,10 @@ export const GlobalStyles = createGlobalStyle`
         --font-weight-regular:300;
         --font-weight-medium:600;
         --font-weight-bold:800;
+    }
+
+
+    .TextField{
+        border-color: red;
     }
     `;

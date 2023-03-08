@@ -1,4 +1,6 @@
+import { red } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
+
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput } from "./style";
 
@@ -17,13 +19,18 @@ export function Input({
     register,
     error,
 }: IInputProps) {
+    return (
+        <StyledInput>
+            <TextField
+                type={type}
+                id={register.name}
+                label={label}
+                placeholder={placeholder}
+                variant="outlined"
+                {...register}
+            />
 
-  return (
-    <StyledInput>
-      
-      <TextField type={type} id={register.name} label={placeholder} variant="outlined" {...register} />
-      
-      {error && <p className="helperText">{error.message}</p>}
-    </StyledInput>
-  );
+            {error && <p className="helperText">{error.message}</p>}
+        </StyledInput>
+    );
 }
