@@ -12,8 +12,10 @@ export const GlobalStyles = createGlobalStyle`
         --color-grey-500:#343B41;
         --color-grey-300:#868E96;
         --color-grey-100:#F8F9FA;
+
         --color-grey-0:#FFFFFF;
 
+        --border-radius-default:5px;
         --color-negative:#E83F5B;
         --color-warning:#FFCD07;
         --color-succes:#3FE864;

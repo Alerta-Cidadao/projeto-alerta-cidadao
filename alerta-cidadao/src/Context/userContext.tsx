@@ -64,7 +64,6 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     const toastLogin = toast.loading("Efetuando login");
     try {
       const response = await baseURL.post("/login", formData);
-      console.log(response);
       localStorage.setItem("@USERTOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);

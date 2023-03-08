@@ -4,7 +4,7 @@ export const schemaNewReportForm = yup
   .object({
     email: yup
       .string()
-      .required("Preencha o campo")
+      .required("Campo obrigatório")
       .email("Preencha com um e-mail valido"),
     description: yup.string().required("Descrição obrigatória"),
   })

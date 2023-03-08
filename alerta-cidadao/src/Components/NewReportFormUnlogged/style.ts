@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const StyledReportForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-display: flex;
-flex-direction: column;
-gap: 1rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-grey-700);
+    border-radius: var(--border-radius-default);
 
-margin-top: 3rem;
-
-`
+    p{
+        color: var(--color-secondary);
+    }
+`;

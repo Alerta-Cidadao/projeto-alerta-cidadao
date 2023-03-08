@@ -5,11 +5,12 @@ export const StyledLoginForm = styled.form`
     flex-direction: column;
     gap: 20px;
 
-    max-width: 440px;
-    max-height: 680px;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-grey-700);
+    border-radius: var(--border-radius-default);
 
-    padding: 10px;
-
-    background-color: var(--color-300);
-
+    p{
+        color: var(--color-secondary);
+    }
+    
 `;
