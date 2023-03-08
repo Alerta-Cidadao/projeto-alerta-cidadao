@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { StyledRegisterForm } from "./style";
+import { StyledRegisterForm, StyledSelect } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaRegisterForm } from "./schema";
 import { Input } from "../Input";
@@ -91,7 +91,7 @@ export const RegisterForm = () => {
       <div className="select-location">
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Estado</InputLabel>
-          <Select
+          <StyledSelect
             labelId="demo-simple-select-label"
             id="uf"
             {...register("estado")}
@@ -107,12 +107,12 @@ export const RegisterForm = () => {
                 {uf.nome}
               </MenuItem>
             ))}
-          </Select>
+          </StyledSelect>
         </FormControl>
 
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label"> Cidade </InputLabel>
-          <Select
+          <StyledSelect
             id="city"
             label="Cidade"
             {...register("cidade")}
@@ -129,8 +129,9 @@ export const RegisterForm = () => {
                 {municipio.nome}
               </MenuItem>
             ))}
-          </Select>
+          </StyledSelect>
         </FormControl>
+
       </div>
       <Button type="submit" variant="contained">Cadastrar</Button>
       

@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import Button from '@mui/material/Button';
 import { useContext} from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IReport } from '../../Context/@types';
@@ -36,11 +37,10 @@ export const NewReportForm = () => {
         placeholder="Digite seu nome"
         register={register("name")}
       />
-      <label htmlFor="description"> Descrição: <span>{errors?.description?.message} </span></label>
+      <p>{errors?.description?.message} </p>
+      <Input  multiline={true} rows={10} register={register("description")} placeholder="Descreva aqui seu problema" label="Descrição"/>
 
-      <textarea  id="description" cols={30} rows={10} placeholder='Descreva aqui sua reclamação ' {...register("description")}/>
-
-      <button type='submit'> Enviar </button>
+      <Button type='submit' variant="contained"> Enviar </Button>
     </StyledReportForm>
   );
 };
