@@ -20,24 +20,25 @@ export const LoginForm = () => {
         handleSubmitLogin(formData);
     };
 
-
-  return (
-    <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
-      <Input
-        label="Email"
-        type="email"
-        placeholder="Digite seu email"
-        register={register("email")}
-        error={errors.email}
-      />
-      <Input
-        label="Senha"
-        type="password"
-        placeholder="Digite sua senha"
-        register={register("password")}
-        error={errors.password}
-      />
-      <Button type="submit" variant="contained">Logar</Button>
-    </StyledLoginForm>
-  );
+    return (
+        <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
+            <Input
+                label="Email"
+                type="email"
+                placeholder="Digite seu email"
+                register={register("email")}
+                error={errors.email}
+            />
+            <Input
+                label="Senha"
+                type="password"
+                placeholder="Digite sua senha"
+                register={register("password")}
+                error={errors.password}
+            />
+            <Button type="submit" variant="contained">
+                Logar
+            </Button>
+        </StyledLoginForm>
+    );
 };

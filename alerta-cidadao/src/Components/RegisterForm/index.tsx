@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { StyledRegisterForm } from "./style";
+import { StyledRegisterForm, StyledSelect } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaRegisterForm } from "./schema";
 import { Input } from "../Input";
@@ -7,14 +7,7 @@ import { IRegisterFormData } from "../../Context/@types";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/userContext";
 import axios from "axios";
-import {
-    Box,
-    Button,
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
-} from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem } from "@mui/material";
 
 interface IUf {
     id: number;
@@ -45,8 +38,8 @@ export const RegisterForm = () => {
     });
     const [ufs, setUfs] = useState<IUf[]>([]);
     const [municipios, setMunicipios] = useState<IMunicipio[]>([]);
-    const [selectedUF, setSelectedUf] = useState("0");
-    const [selectedCity, setSelectedCity] = useState("0");
+    const [selectedUF, setSelectedUf] = useState<string | unknown>("0");
+    const [selectedCity, setSelectedCity] = useState<string | unknown>("0");
 
     useEffect(() => {
         axios
@@ -69,9 +62,9 @@ export const RegisterForm = () => {
     return (
         <StyledRegisterForm onSubmit={handleSubmit(submitRegister)}>
             <Input
-                label="Name"
+                label="Nome"
                 type="text"
-                placeholder="Digite seu user name"
+                placeholder="Digite seu username"
                 register={register("name")}
                 error={errors.name}
             />
@@ -90,7 +83,7 @@ export const RegisterForm = () => {
                 error={errors.password}
             />
             <Input
-                label="Confirm password"
+                label="Confirmar senha"
                 type="password"
                 placeholder="Confirme sua senha"
                 register={register("confirmPassword")}
@@ -102,7 +95,7 @@ export const RegisterForm = () => {
                     <InputLabel id="demo-simple-select-label">
                         Estado
                     </InputLabel>
-                    <Select
+                    <StyledSelect
                         labelId="demo-simple-select-label"
                         id="uf"
                         {...register("estado")}
@@ -118,7 +111,7 @@ export const RegisterForm = () => {
                                 {uf.nome}
                             </MenuItem>
                         ))}
-                    </Select>
+                    </StyledSelect>
                 </FormControl>
 
                 <FormControl fullWidth>
@@ -126,7 +119,7 @@ export const RegisterForm = () => {
                         {" "}
                         Cidade{" "}
                     </InputLabel>
-                    <Select
+                    <StyledSelect
                         id="city"
                         label="Cidade"
                         {...register("cidade")}
@@ -143,7 +136,7 @@ export const RegisterForm = () => {
                                 {municipio.nome}
                             </MenuItem>
                         ))}
-                    </Select>
+                    </StyledSelect>
                 </FormControl>
             </div>
             <Button type="submit" variant="contained">

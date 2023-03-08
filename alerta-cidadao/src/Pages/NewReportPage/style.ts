@@ -4,5 +4,5 @@ export const StyledReportPage = styled.div`
 
 width: fit-content;
 
-margin: 1rem auto;
+margin: 12vh auto;
 `
