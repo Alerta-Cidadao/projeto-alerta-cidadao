@@ -11,14 +11,15 @@ export interface IUser {
 export interface IReport {
     title: string;
     description: string;
-    name: string;
+    state:string;
+    city:string;
+    name?: string;
     img?: string;
     date: string;
     problem?: string;
     since?: string;
     email?: string;
     userId: number | undefined | null;
-    id: number;
 }
 
 export interface IComment {
