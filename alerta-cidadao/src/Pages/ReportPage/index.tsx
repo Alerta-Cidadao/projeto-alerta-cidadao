@@ -52,7 +52,7 @@ export const ReportPage = () => {
                 autoClose: 3000,
                 closeOnClick: true,
             });
-            console.log(response);
+          
             setComments([...comments, response.data]);
         } catch (error) {
             toast.update(toastNewReport, {

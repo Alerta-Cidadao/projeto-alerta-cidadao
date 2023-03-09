@@ -13,7 +13,7 @@ export const ReportCard = ({ report }: IReportProp) => {
         navigate(`/report-page/${report.id}`);
     };
 
-    console.log(report)
+  
     return (
         <StyledReportCard onClick={() => goToReportPage()}>
             <h1> {report.title} </h1>
