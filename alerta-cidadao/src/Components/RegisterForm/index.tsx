@@ -61,6 +61,7 @@ export const RegisterForm = () => {
 
     return (
         <StyledRegisterForm onSubmit={handleSubmit(submitRegister)}>
+            <h1> Cadastrar </h1>
             <Input
                 label="Nome"
                 type="text"

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLoginForm = styled.form`
+    font-family: var(--font-family);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -9,8 +10,10 @@ export const StyledLoginForm = styled.form`
     background-color: var(--color-grey-700);
     border-radius: var(--border-radius-default);
 
-    p{
+    p {
         color: var(--color-secondary);
     }
-    
+    h1{
+        color: var(--color-grey-100);
+    }
 `;
