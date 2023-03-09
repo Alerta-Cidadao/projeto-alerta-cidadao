@@ -5,4 +5,7 @@ export const StyledHomePage = styled.main`
     justify-content: center;
 
     padding-top: 12vh;
+
+    max-width: 98vw;
+
 `;

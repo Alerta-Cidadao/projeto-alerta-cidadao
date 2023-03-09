@@ -28,7 +28,7 @@ export const StyledHeader = styled.header`
             color: var(--color-grey-100);
             text-decoration: none;
             background-color: var(--color-primary);
-
+            font-size: var(--font-size-regular);
             padding: 0.3rem 1.5rem;
             border-radius: 5px;
         }
@@ -37,6 +37,8 @@ export const StyledHeader = styled.header`
             box-shadow: 0px 0px 10px var(--color-secondary);
         }
         button {
+            font-size: var(--font-size-regular);
+            font-family: var(--font-family);
             border: none;
             color: var(--color-grey-100);
             text-decoration: none;
@@ -44,6 +46,7 @@ export const StyledHeader = styled.header`
 
             padding: 0.3rem 1.5rem;
             border-radius: 5px;
+            text-align: left;
         }
         button:hover {
             background-color: var(--color-secondary);
@@ -78,6 +81,9 @@ export const StyledHeader = styled.header`
             a{
                 border-radius: 0;
             }
+        }
+        button{
+            border-radius: 0;
         }
         .visible{
             display: flex;
