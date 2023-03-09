@@ -5,4 +5,7 @@ export const StyledLoginPage = styled.main`
     justify-content: center;
 
     margin-top: 12vh;
+
+    max-width: 98vw;
+    
 `;
