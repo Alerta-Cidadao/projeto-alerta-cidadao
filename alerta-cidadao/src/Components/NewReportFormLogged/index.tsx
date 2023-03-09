@@ -43,12 +43,20 @@ export const NewReportFormLogged = () => {
     });
 
     const submitNewReport: SubmitHandler<IReport> = (formData) => {
-        console.log(formData);
+        handleSubmitNewReport(formData);
     };
 
     return (
         <StyledReportFormLogged onSubmit={handleSubmit(submitNewReport)}>
             <h1> Titulo do form de reclamação </h1>
+
+            <Input
+                label="Titulo"
+                type="text"
+                placeholder="Digite seu email"
+                register={register("title")}
+                error={errors.title}
+            />
 
             <div className="select-location">
                 <FormControl fullWidth>

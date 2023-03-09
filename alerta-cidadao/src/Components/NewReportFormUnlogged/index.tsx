@@ -65,6 +65,15 @@ export const NewReportForm = () => {
             />
 
             <h2> Campos obrigatórios </h2>
+
+            <Input
+                label="Titulo"
+                type="text"
+                placeholder="Digite seu email"
+                register={register("title")}
+                error={errors.title}
+            />
+            
             <div className="select-location">
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">

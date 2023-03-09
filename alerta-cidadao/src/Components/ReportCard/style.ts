@@ -19,4 +19,7 @@ export const StyledReportCard = styled.li`
         background-color: var(--color-grey-300);
         border: 1px solid var(--color-grey-0);
     }
+    img{
+        width: 90%;
+    }
 `;
