@@ -9,6 +9,7 @@ export const StyledRegisterForm = styled.form`
     padding: 1.5rem 1rem;
     background-color: var(--color-grey-700);
     border-radius: var(--border-radius-default);
+    font-family: var(--font-family);
     .select-location {
         display: flex;
         gap: 1rem;
@@ -16,6 +17,9 @@ export const StyledRegisterForm = styled.form`
 
     p{
         color: var(--color-secondary);
+    }
+    h1{
+        color: var(--color-grey-100);
     }
 `;
 

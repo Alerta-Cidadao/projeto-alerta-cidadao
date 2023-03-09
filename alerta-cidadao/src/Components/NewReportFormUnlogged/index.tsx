@@ -24,6 +24,7 @@ export const NewReportForm = () => {
 
   return (
     <StyledReportForm onSubmit={handleSubmit(submitNewReport)}>
+      <h1> Titulo do form de reclamação </h1>
       <Input
         label="Email"
         type="email"

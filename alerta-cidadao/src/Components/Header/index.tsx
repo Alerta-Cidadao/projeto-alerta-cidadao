@@ -1,5 +1,5 @@
 import { StyledHeader } from './style'
-import logoImg from '../../assets/logo-header.svg'
+import logoImg from '../../assets/logo-white.svg'
 import { NavUnlogged } from '../NavUnlogged'
 import { NavLogged } from '../NavLogged'
 import { useContext } from 'react'
