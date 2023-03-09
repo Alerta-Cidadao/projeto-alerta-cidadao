@@ -20,6 +20,7 @@ export interface IReport {
     since?: string;
     email?: string;
     userId: number | undefined | null;
+    id:number;
 }
 
 export interface IComment {

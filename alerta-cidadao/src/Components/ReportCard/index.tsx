@@ -13,10 +13,15 @@ export const ReportCard = ({ report }: IReportProp) => {
         navigate(`/report-page/${report.id}`);
     };
 
+    console.log(report)
     return (
         <StyledReportCard onClick={() => goToReportPage()}>
             <h1> {report.title} </h1>
-            <span> {report.email && report.email} </span>
+            <p> {report.name && report.name} </p>
+            { report.city && <p> <span> {report.city} </span> / <span> {report.state} </span> </p> }
+            {report.img && (
+                <img src={report.img} alt=""/>
+            )}
             <p> {report.description} </p>
         </StyledReportCard>
     );
