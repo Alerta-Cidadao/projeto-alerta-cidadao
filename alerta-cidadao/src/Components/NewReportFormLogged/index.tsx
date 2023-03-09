@@ -1,45 +1,22 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { StyledRegisterForm, StyledSelect } from "./style";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schemaRegisterForm } from "./schema";
-import { Input } from "../Input";
-import { IRegisterFormData } from "../../Context/@types";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../Context/userContext";
+import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import Button from "@mui/material/Button";
 import axios from "axios";
-import { Button, FormControl, InputLabel, MenuItem } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { IReport } from "../../Context/@types";
+import { UserContext } from "../../Context/userContext";
+import { Input } from "../Input";
+import { IMunicipio, IUf } from "../RegisterForm";
+import { StyledSelect } from "../RegisterForm/style";
+import { schemaNewReportFormLogged } from "./schema";
+import { StyledReportFormLogged } from "./style";
 
-export interface IUf {
-    id: number;
-    nome: string;
-    regiao: IRegiao;
-    sigla: string;
-}
-
-export interface IRegiao {
-    id: number;
-    nome: string;
-    sigla: string;
-}
-
-export interface IMunicipio {
-    id: number;
-    nome: string;
-}
-
-export const RegisterForm = () => {
-    const { handleSubmitRegister } = useContext(UserContext);
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IRegisterFormData>({
-        resolver: yupResolver(schemaRegisterForm),
-    });
-    const [ufs, setUfs] = useState<IUf[]>([]);
-    const [municipios, setMunicipios] = useState<IMunicipio[]>([]);
+export const NewReportFormLogged = () => {
     const [selectedUF, setSelectedUf] = useState<string | unknown>("0");
     const [selectedCity, setSelectedCity] = useState<string | unknown>("0");
+    const [ufs, setUfs] = useState<IUf[]>([]);
+    const [municipios, setMunicipios] = useState<IMunicipio[]>([]);
 
     useEffect(() => {
         axios
@@ -55,41 +32,23 @@ export const RegisterForm = () => {
             .then((response) => setMunicipios(response.data));
     }, [selectedUF]);
 
-    const submitRegister: SubmitHandler<IRegisterFormData> = (formData) => {
-        handleSubmitRegister(formData);
+    const { handleSubmitNewReport, user } = useContext(UserContext);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IReport>({
+        resolver: yupResolver(schemaNewReportFormLogged),
+        defaultValues: { userId: user?.id, name: user?.name, email: user?.email},
+    });
+
+    const submitNewReport: SubmitHandler<IReport> = (formData) => {
+        console.log(formData);
     };
 
     return (
-        <StyledRegisterForm onSubmit={handleSubmit(submitRegister)}>
-            <h1> Cadastrar </h1>
-            <Input
-                label="Nome"
-                type="text"
-                placeholder="Digite seu username"
-                register={register("name")}
-                error={errors.name}
-            />
-            <Input
-                label="Email"
-                type="email"
-                placeholder="Digite seu email"
-                register={register("email")}
-                error={errors.email}
-            />
-            <Input
-                label="Senha"
-                type="password"
-                placeholder="Digite sua senha"
-                register={register("password")}
-                error={errors.password}
-            />
-            <Input
-                label="Confirmar senha"
-                type="password"
-                placeholder="Confirme sua senha"
-                register={register("confirmPassword")}
-                error={errors.confirmPassword}
-            />
+        <StyledReportFormLogged onSubmit={handleSubmit(submitNewReport)}>
+            <h1> Titulo do form de reclamação </h1>
 
             <div className="select-location">
                 <FormControl fullWidth>
@@ -99,7 +58,7 @@ export const RegisterForm = () => {
                     <StyledSelect
                         labelId="demo-simple-select-label"
                         id="uf"
-                        {...register("estado")}
+                        {...register("state")}
                         value={selectedUF}
                         label="Estado"
                         onChange={(event) => {
@@ -123,7 +82,7 @@ export const RegisterForm = () => {
                     <StyledSelect
                         id="city"
                         label="Cidade"
-                        {...register("cidade")}
+                        {...register("city")}
                         value={selectedCity}
                         onChange={(event) => {
                             setSelectedCity(event.target.value);
@@ -140,9 +99,20 @@ export const RegisterForm = () => {
                     </StyledSelect>
                 </FormControl>
             </div>
+
+            <p>{errors?.description?.message} </p>
+            <Input
+                multiline={true}
+                rows={10}
+                register={register("description")}
+                placeholder="Descreva aqui seu problema"
+                label="Descrição"
+            />
+
             <Button type="submit" variant="contained">
-                Cadastrar
+                {" "}
+                Enviar{" "}
             </Button>
-        </StyledRegisterForm>
+        </StyledReportFormLogged>
     );
 };
