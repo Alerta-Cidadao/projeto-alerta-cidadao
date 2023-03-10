@@ -20,7 +20,7 @@ export const StyledReportPage = styled.div`
 `;
 
 
-export const CommentUl = styled.ul`
+export const CommentUl = styled.li`
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid rgb(120 4 4);
@@ -28,4 +28,7 @@ export const CommentUl = styled.ul`
     width: 48%;
     min-width: 315px;
     border-radius: 4px;
+    list-style: none;
+
+    gap: 15px;
 `

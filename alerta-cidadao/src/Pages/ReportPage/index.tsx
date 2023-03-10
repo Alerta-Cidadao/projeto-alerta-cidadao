@@ -23,7 +23,9 @@ export const ReportPage = () => {
 
     const getCommentsOfSpecificReport = async () => {
         try {
-            const response = await baseURL.get(`/reports/${reportId}/comments`);
+            const response = await baseURL.get(
+                `/reports/${reportId}/comments?_expand=user`
+            );
             setComments(response.data);
         } catch (error) {
             toast.error("error");
@@ -52,7 +54,7 @@ export const ReportPage = () => {
                 autoClose: 3000,
                 closeOnClick: true,
             });
-          
+
             setComments([...comments, response.data]);
         } catch (error) {
             toast.update(toastNewReport, {
@@ -70,12 +72,10 @@ export const ReportPage = () => {
             {report && <ReportCard report={report} />}
             {comments &&
                 comments.map((comment: IComment) => (
-                    <CommentUl>
-                        <li>
-                        <p key={comment.id}> {comment.body} </p>
-                        </li>
+                    <CommentUl key={comment.id}>
+                        <h3> {comment.user.name}</h3>
+                        <p> {comment.body} </p>
                     </CommentUl>
-                    
                 ))}
 
             <CommentForm
