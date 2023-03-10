@@ -5,21 +5,18 @@ import { UserContext } from "../../Context/userContext";
 import { StyledReportPage } from "./style";
 
 export const NewReportPage = () => {
-
-  const { user} = useContext(UserContext)
+    const { user } = useContext(UserContext);
     return (
         <StyledReportPage>
             {user ? (
-                <div >
+                <div>
                     <NewReportFormLogged />
                 </div>
             ) : (
-                <div >
+                <div>
                     <NewReportForm />
                 </div>
             )}
-
-            
         </StyledReportPage>
     );
 };

@@ -14,14 +14,5 @@ export const StyledHomePage = styled.main`
     max-width: 98vw;
     margin: 0 auto;
 
-    form{
-        display: flex;
-        width: 100%;
-
-        margin-bottom: 20px;
-        button{
-            background-color: transparent;
-            border: none;
-        }
-    }
+    
 `;

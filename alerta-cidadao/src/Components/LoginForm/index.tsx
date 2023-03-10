@@ -22,7 +22,7 @@ export const LoginForm = () => {
 
     return (
         <StyledLoginForm onSubmit={handleSubmit(submitLogin)}>
-            <h1> Login  </h1>
+            <h1> Login </h1>
             <Input
                 label="Email"
                 type="email"
