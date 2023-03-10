@@ -26,6 +26,7 @@ export const Header = () => {
   return (
     <StyledHeader>
         <img src={logoImg} alt="" onClick={()=>{goToHome()}}/>
+      
         {
           user ?
           <div className={visible}>

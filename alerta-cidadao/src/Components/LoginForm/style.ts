@@ -9,7 +9,7 @@ export const StyledLoginForm = styled.form`
     padding: 1.5rem 1rem;
     background-color: var(--color-grey-700);
     border-radius: var(--border-radius-default);
-
+    
     p {
         color: var(--color-secondary);
     }

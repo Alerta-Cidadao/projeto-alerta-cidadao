@@ -7,5 +7,10 @@ export const StyledLoginPage = styled.main`
     margin-top: 12vh;
 
     max-width: 98vw;
+
+    min-height: 88vh;
+    form{
+        height: fit-content;
+    }
     
 `;
