@@ -6,8 +6,9 @@ export const StyledListAllReports = styled.ul`
     align-items: center;
     gap: 1rem;
 
-    width: 440px;
-    max-height: 680px;
+    
 
-    background-color: var(--color-300);
+    background-color: var(--color-grey-700);
+    width: 60rem;
+    padding: 1rem;
 `;

@@ -9,13 +9,13 @@ export const HomePage = () => {
 
     const { setFilterReports } = useContext(UserContext)
    
-    const handleFilterSubmit = (event:any) =>{
+    const handleFilterSubmit = (event:any, teste:any) =>{
         event.preventDefault()
-        setFilterReports(event.currentTarget.value)
+        console.log(teste)
     }
     return (
         <StyledHomePage>
-            <form action="" onSubmit={(event)=>handleFilterSubmit(event)}>
+            <form action="" onSubmit={(event)=>handleFilterSubmit(event, event.currentTarget.value)}>
                 <Input
                     label="Barra de pesquisa"
                     type="text"

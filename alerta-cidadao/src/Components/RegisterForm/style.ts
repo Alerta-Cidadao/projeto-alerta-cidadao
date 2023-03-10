@@ -6,13 +6,16 @@ export const StyledRegisterForm = styled.form`
     flex-direction: column;
     gap: 20px;
 
+    width: 30rem;
+    max-width: 100%;
+
     padding: 1.5rem 1rem;
     background-color: var(--color-grey-700);
     border-radius: var(--border-radius-default);
     font-family: var(--font-family);
     .select-location {
         display: flex;
-        gap: 1rem;
+        gap: 20px;
     }
 
     p{
