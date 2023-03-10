@@ -33,17 +33,24 @@ export const NewReportFormLogged = () => {
     }, [selectedUF]);
 
     const { handleSubmitNewReport, user } = useContext(UserContext);
+
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<IReport>({
         resolver: yupResolver(schemaNewReportFormLogged),
-        defaultValues: { userId: user?.id, name: user?.name, email: user?.email},
+        defaultValues: {
+            userId: user?.id,
+            name: user?.name,
+            email: user?.email,
+        },
     });
 
     const submitNewReport: SubmitHandler<IReport> = (formData) => {
         handleSubmitNewReport(formData);
+        reset();
     };
 
     return (
@@ -57,7 +64,7 @@ export const NewReportFormLogged = () => {
                 register={register("title")}
                 error={errors.title}
             />
-             <Input
+            <Input
                 label="Imagem"
                 type="text"
                 placeholder="Url da imagem"

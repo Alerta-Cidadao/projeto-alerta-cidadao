@@ -143,6 +143,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
             });
 
             setReports([...reports, response.data]);
+            navigate("/")
         } catch (error) {
             toast.update(toastNewReport, {
                 render: "Erro ao efetuar a reclamação confira as informações e tente novamente.",
