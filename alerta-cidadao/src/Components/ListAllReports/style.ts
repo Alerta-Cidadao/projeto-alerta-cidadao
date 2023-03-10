@@ -6,9 +6,7 @@ export const StyledListAllReports = styled.ul`
     align-items: center;
     gap: 1rem;
 
-    
-
-    background-color: var(--color-grey-700);
-    width: 60rem;
+    background-color: var(--color-grey-700-opacity);
+    max-width: 450px;
     padding: 1rem;
 `;

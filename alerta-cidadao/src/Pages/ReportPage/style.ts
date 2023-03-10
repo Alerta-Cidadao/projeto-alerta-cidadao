@@ -25,7 +25,6 @@ export const CommentUl = styled.li`
     flex-direction: column;
     border-bottom: 2px solid rgb(120 4 4);
     padding: 20px;
-    width: 48%;
     min-width: 315px;
     border-radius: 4px;
     list-style: none;
