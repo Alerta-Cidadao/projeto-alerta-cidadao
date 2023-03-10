@@ -23,6 +23,7 @@ export const CommentForm = ({
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<ICommentFormData>({
         resolver: yupResolver(schemaComment),
@@ -31,6 +32,7 @@ export const CommentForm = ({
 
     const submitComment: SubmitHandler<ICommentFormData> = (formData) => {
         handleSubmitComment(formData);
+        reset();
     };
 
     return (
@@ -42,7 +44,7 @@ export const CommentForm = ({
                 error={errors.body}
                 multiline={true}
                 rows={3}
-                />
+            />
             <Button type="submit" variant="contained">
                 {" "}
                 <FaPaperPlane />{" "}
