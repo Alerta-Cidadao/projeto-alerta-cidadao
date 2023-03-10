@@ -5,8 +5,7 @@ export const StyledReportCard = styled.li`
     flex-direction: column;
     align-items: center;
 
-    min-width: 300px;
-    width: 50%;
+    width: 95%;
     padding: 10px;
 
     background-color: var(--color-grey-900);
@@ -15,11 +14,13 @@ export const StyledReportCard = styled.li`
     border-radius: var(--border-radius-default);
     cursor: pointer;
     border: 1px solid transparent;
+
     &&:hover {
         background-color: var(--color-grey-300);
         border: 1px solid var(--color-grey-0);
     }
-    img{
+
+    img {
         width: 90%;
     }
 `;
