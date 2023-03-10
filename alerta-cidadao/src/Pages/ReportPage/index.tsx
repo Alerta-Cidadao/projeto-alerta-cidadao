@@ -5,7 +5,7 @@ import { CommentForm } from "../../Components/CommentForm";
 import { ReportCard } from "../../Components/ReportCard";
 import { IComment, ICommentFormData, IReport } from "../../Context/@types";
 import { baseURL } from "../../Services/fakeApi";
-import { StyledReportPage } from "./style";
+import { StyledReportPage, CommentUl } from "./style";
 
 export const ReportPage = () => {
     const [report, setReport] = useState({} as IReport);
@@ -70,7 +70,12 @@ export const ReportPage = () => {
             {report && <ReportCard report={report} />}
             {comments &&
                 comments.map((comment: IComment) => (
-                    <p key={comment.id}> {comment.body} </p>
+                    <CommentUl>
+                        <li>
+                        <p key={comment.id}> {comment.body} </p>
+                        </li>
+                    </CommentUl>
+                    
                 ))}
 
             <CommentForm
