@@ -4,7 +4,7 @@ export const StyledReportPage = styled.div`
     background-color: var(--color-grey-700);
 
     margin: 12vh auto;
-    
+
     width: 60rem;
     max-width: 98vw;
 
@@ -15,10 +15,7 @@ export const StyledReportPage = styled.div`
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-
-
 `;
-
 
 export const CommentUl = styled.li`
     display: flex;
@@ -30,4 +27,4 @@ export const CommentUl = styled.li`
     list-style: none;
 
     gap: 15px;
-`
+`;
