@@ -5,8 +5,8 @@ export const StyledReportCard = styled.li`
     flex-direction: column;
     align-items: center;
 
-    width: 440px;
-
+    min-width: 300px;
+    width: 50%;
     padding: 10px;
 
     background-color: var(--color-grey-900);

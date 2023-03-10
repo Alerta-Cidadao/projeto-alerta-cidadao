@@ -18,3 +18,14 @@ export const StyledReportPage = styled.div`
 
 
 `;
+
+
+export const CommentUl = styled.ul`
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid rgb(120 4 4);
+    padding: 20px;
+    width: 48%;
+    min-width: 315px;
+    border-radius: 4px;
+`

@@ -36,13 +36,13 @@ export const CommentForm = ({
     return (
         <StyledCommentForm onSubmit={handleSubmit(submitComment)}>
             <Input
-                label="body"
+                label="Comentário"
                 placeholder="Digite aqui seu comentário"
                 register={register("body")}
                 error={errors.body}
                 multiline={true}
                 rows={3}
-            />
+                />
             <Button type="submit" variant="contained">
                 {" "}
                 <FaPaperPlane />{" "}

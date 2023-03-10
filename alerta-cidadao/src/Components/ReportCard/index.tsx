@@ -22,7 +22,11 @@ export const ReportCard = ({ report }: IReportProp) => {
             {report.img && (
                 <img src={report.img} alt=""/>
             )}
+          
             <p> {report.description} </p>
+         
+            
+            
         </StyledReportCard>
     );
 };
