@@ -13,6 +13,8 @@ import {
 interface IUserContext {
   user: IUser | null;
   reports: IReport[];
+  filteredReports:IReport[];
+  setFilterReports:React.Dispatch<React.SetStateAction<string>>;
   handleSubmitLogin: (formData: ILoginFormData) => Promise<void>;
   handleSubmitRegister: (formData: IRegisterFormData) => Promise<void>;
   handleLogout: () => void;
@@ -24,6 +26,7 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IChildrenProps) => {
   const [user, setUser] = useState(null as IUser | null);
   const [reports, setReports] = useState([] as IReport[]);
+  const [filterReports, setFilterReports] = useState('');
 
   const navigate = useNavigate();
 
@@ -134,7 +137,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         autoClose: 3000,
         closeOnClick: true,
       });
-      console.log(response);
+      
       setReports([...reports, response.data]);
     } catch (error) {
       toast.update(toastNewReport, {
@@ -147,11 +150,19 @@ export const UserProvider = ({ children }: IChildrenProps) => {
       });
     }
   };
+
+  const filteredReports = reports.filter
+  (report=> report.title?.toLowerCase().includes(filterReports?.toLowerCase().trim()) || 
+  report.state?.toLowerCase().includes(filterReports?.toLowerCase().trim()) || 
+  report.city?.toLowerCase().includes(filterReports?.toLowerCase().trim()))
+
   return (
     <UserContext.Provider
       value={{
         reports,
         user,
+        filteredReports,
+        setFilterReports,
         handleSubmitLogin,
         handleSubmitRegister,
         handleLogout,

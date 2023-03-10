@@ -57,6 +57,12 @@ export const NewReportFormLogged = () => {
                 register={register("title")}
                 error={errors.title}
             />
+             <Input
+                label="Imagem"
+                type="text"
+                placeholder="Url da imagem"
+                register={register("img")}
+            />
 
             <div className="select-location">
                 <FormControl fullWidth>

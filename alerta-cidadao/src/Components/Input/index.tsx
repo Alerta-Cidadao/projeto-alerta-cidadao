@@ -1,6 +1,3 @@
-import { red } from "@mui/material/colors";
-import TextField from "@mui/material/TextField";
-
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInput, StyledTextField } from "./style";
 
@@ -8,11 +5,13 @@ interface IInputProps {
     label?: string;
     placeholder: string;
     type?: "text" | "email" | "password" | "number";
-    register: UseFormRegisterReturn<string>;
+    register?: UseFormRegisterReturn<string> | undefined;
     error?: FieldError;
     multiline?: boolean;
     rows?: number;
+    onChange?:(event:any)=>void;
 }
+
 
 export function Input({
     type,
@@ -22,12 +21,13 @@ export function Input({
     error,
     multiline,
     rows,
+    onChange
 }: IInputProps) {
     return (
         <StyledInput>
             <StyledTextField
                 type={type}
-                id={register.name}
+                id={register?.name}
                 label={label}
                 placeholder={placeholder}
                 variant="outlined"
@@ -36,6 +36,7 @@ export function Input({
                 rows={rows}
                 color="primary"
                 sx={{ borderColor: "background.default" }}
+                onChange={onChange}
             />
             {error && <p className="helperText">{error.message}</p>}
         </StyledInput>

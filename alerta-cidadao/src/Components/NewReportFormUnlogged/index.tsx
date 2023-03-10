@@ -43,7 +43,7 @@ export const NewReportForm = () => {
     });
 
     const submitNewReport: SubmitHandler<IReport> = (formData) => {
-      handleSubmitNewReport(formData);
+        handleSubmitNewReport(formData);
     };
 
     return (
@@ -64,6 +64,13 @@ export const NewReportForm = () => {
                 register={register("name")}
             />
 
+            <Input
+                label="Imagem"
+                type="text"
+                placeholder="Url da imagem"
+                register={register("img")}
+            />
+
             <h2> Campos obrigatórios </h2>
 
             <Input
@@ -73,7 +80,7 @@ export const NewReportForm = () => {
                 register={register("title")}
                 error={errors.title}
             />
-            
+
             <div className="select-location">
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
