@@ -106,7 +106,9 @@ export const ReportPage = () => {
                         <CommentUl key={crypto.randomUUID()}>
                             <h3> {comment?.user?.name}</h3>
                             <p> {comment.body} </p>
-                            <button onClick={() => deleteComment(comment.id)}>Deletar</button>
+                            <button onClick={() => deleteComment(comment.id)}>
+                                Deletar
+                            </button>
                         </CommentUl>
                     ))}
                 </ul>

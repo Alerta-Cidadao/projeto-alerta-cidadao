@@ -9,9 +9,8 @@ interface IInputProps {
     error?: FieldError;
     multiline?: boolean;
     rows?: number;
-    onChange?:(event:any)=>void;
+    onChange?: (event: any) => void;
 }
-
 
 export function Input({
     type,
@@ -21,7 +20,7 @@ export function Input({
     error,
     multiline,
     rows,
-    onChange
+    onChange,
 }: IInputProps) {
     return (
         <StyledInput>

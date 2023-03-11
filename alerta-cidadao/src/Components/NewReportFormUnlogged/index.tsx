@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IReport } from "../../Context/@types";
+import { ReportContext } from "../../Context/reportsContext";
 import { UserContext } from "../../Context/userContext";
 import { Input } from "../Input";
 import { IMunicipio, IUf } from "../RegisterForm";
@@ -32,7 +33,8 @@ export const NewReportForm = () => {
             .then((response) => setMunicipios(response.data));
     }, [selectedUF]);
 
-    const { handleSubmitNewReport, user } = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const { handleSubmitNewReport } = useContext(ReportContext);
     const {
         register,
         handleSubmit,

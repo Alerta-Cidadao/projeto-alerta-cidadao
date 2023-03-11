@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@mui/material";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ICommentFormData, IReport } from "../../Context/@types";
+import { ICommentFormData } from "../../Context/@types";
 import { Input } from "../Input";
 import { StyledCommentForm } from "./style";
 import { FaPaperPlane } from "react-icons/fa";

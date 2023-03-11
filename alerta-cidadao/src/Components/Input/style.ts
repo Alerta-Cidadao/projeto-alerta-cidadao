@@ -5,6 +5,8 @@ export const StyledInput = styled.fieldset`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    
 `;
 
 export const StyledTextField = styled(TextField)`

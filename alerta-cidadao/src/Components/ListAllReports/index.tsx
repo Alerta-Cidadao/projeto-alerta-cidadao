@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { UserContext } from "../../Context/userContext";
+import { ReportContext } from "../../Context/reportsContext";
 import { ReportCard } from "../ReportCard";
 import { StyledListAllReports } from "./style";
 
 export const ListAllReports = () => {
-    const { filteredReports } = useContext(UserContext);
+    const { filteredReports } = useContext(ReportContext);
     return (
         <StyledListAllReports>
             {filteredReports &&
