@@ -30,7 +30,7 @@ export const Header = () => {
                         goToHome();
                     }}
                 />
-                <SearchForm />
+                <SearchForm/>
             </>
             {user ? (
                 <div className={visible}>
