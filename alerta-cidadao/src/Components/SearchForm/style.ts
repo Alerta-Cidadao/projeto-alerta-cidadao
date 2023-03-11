@@ -4,8 +4,8 @@ export const StyledSearchForm = styled.form`
     position: relative;
     align-self: center;
     margin: 0 10px;
-    min-width: 50%;
-
+    width: 20rem;
+    
     input {
         padding-right: 55px;
     }
@@ -18,4 +18,5 @@ export const StyledSearchForm = styled.form`
         top: 13px;
         right: 13px;
     }
+    
 `;

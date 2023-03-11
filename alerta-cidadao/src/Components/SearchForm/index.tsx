@@ -23,9 +23,9 @@ export const SearchForm = () => {
                 label="Barra de pesquisa"
                 type="text"
                 placeholder="Cidade, estado ou titulo"
-                // onChange={(event: any) =>
-                //     setFilterReports(event.currentTarget.value)
-                // }
+                onChange={(event: any) =>
+                     setFilterReports(event.currentTarget.value)
+                }
             />
             <button type="submit">
                 <FaSearch color="#FFF" size={30} />

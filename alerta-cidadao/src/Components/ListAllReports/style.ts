@@ -9,4 +9,10 @@ export const StyledListAllReports = styled.ul`
     background-color: var(--color-grey-700-opacity);
     max-width: 450px;
     padding: 1rem;
+
+    @media (min-width:1028px) {
+        form{
+            display: none;
+        }
+    }
 `;

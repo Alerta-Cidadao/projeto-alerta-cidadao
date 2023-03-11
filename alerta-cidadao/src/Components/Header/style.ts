@@ -19,7 +19,8 @@ export const StyledHeader = styled.header`
         width: 5rem;
         cursor: pointer;
     }
-
+border-top: 1px solid var(--color-grey-300);
+border-bottom: 1px solid var(--color-grey-300);
     nav {
         display: flex;
         gap: 1rem;
@@ -56,6 +57,12 @@ export const StyledHeader = styled.header`
     .hamburger{
         display: none;
     }
+    @media (max-width:1027px) {
+        form{
+            display: none;
+        }
+    }
+
     @media (max-width:767px) {
        justify-content: space-around;
         
@@ -91,5 +98,6 @@ export const StyledHeader = styled.header`
         .hidden{
             display: none;
         }
+        
     }
 `;
