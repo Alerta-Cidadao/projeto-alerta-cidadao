@@ -10,6 +10,11 @@ export const StyledListAllReports = styled.ul`
     max-width: 450px;
     padding: 1rem;
 
+    h1{
+        font-family: var(--font-family);
+        color: var(--color-grey-100);
+        font-weight: var(--font-weight-regular);
+    }
     @media (min-width:1028px) {
         form{
             display: none;

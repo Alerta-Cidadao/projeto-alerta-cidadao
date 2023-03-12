@@ -13,6 +13,9 @@ export const StyledReportCard = styled.li`
     border-radius: var(--border-radius-default);
     border: 1px solid transparent;
     
+    .report-description{
+        display: inline;
+    }
     div {
         display: flex;
         flex-direction: column;
