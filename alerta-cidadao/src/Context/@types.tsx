@@ -29,7 +29,6 @@ export interface IComment {
     id: number;
     reportId: number;
     userId: number;
-    user: IUser;
 }
 
 export interface ILoginFormData {
