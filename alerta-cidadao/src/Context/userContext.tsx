@@ -22,6 +22,13 @@ interface IUserContext {
     deleteUser: () => Promise<void>;
     modalDelete: boolean;
     setModalDelete: React.Dispatch<React.SetStateAction<boolean>>;
+    updateUser: (
+        userId: string,
+        formData: IUser,
+        token: string
+    ) => Promise<void>;
+    modalUpdate: boolean;
+    setModalUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -31,6 +38,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
     const [reports, setReports] = useState([] as IReport[]);
     const [filterReports, setFilterReports] = useState("");
     const [modalDelete, setModalDelete] = useState(false);
+    const [modalUpdate, setModalUpdate] = useState(false);
 
     const navigate = useNavigate();
 
@@ -172,10 +180,44 @@ export const UserProvider = ({ children }: IChildrenProps) => {
                 autoClose: 3000,
                 closeOnClick: true,
             });
+            navigate("/");
         } catch (error) {
             console.error(error);
             toast.update(toastDelete, {
                 render: "Erro ao deletar a conta tente novamente",
+                type: "error",
+                isLoading: false,
+                autoClose: 3000,
+                closeOnClick: true,
+            });
+        }
+    };
+
+    const updateUser = async (
+        userId: string,
+        formData: IUser,
+        token: string
+    ) => {
+        const toastPerfilMod = toast.loading("Atualizando suas informações");
+        try {
+            const response = await baseURL.patch(`/users/${userId}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data);
+            //setUser(response.data);
+            toast.update(toastPerfilMod, {
+                render: "Informações atualizadas",
+                type: "success",
+                isLoading: false,
+                autoClose: 3000,
+                closeOnClick: true,
+            });
+        } catch (error) {
+            console.error(error);
+            toast.update(toastPerfilMod, {
+                render: "Erro ao tentar atualizar as informações tente novamente",
                 type: "error",
                 isLoading: false,
                 autoClose: 3000,
@@ -211,6 +253,9 @@ export const UserProvider = ({ children }: IChildrenProps) => {
                 deleteUser,
                 modalDelete,
                 setModalDelete,
+                updateUser,
+                modalUpdate,
+                setModalUpdate,
             }}
         >
             {children}
