@@ -9,12 +9,12 @@ export const ListAllReports = () => {
     return (
         <StyledListAllReports>
             <SearchForm/>
-           {filteredReports ?
+           {filteredReports.length != 0 ?
                 filteredReports.map((report) => (
                     <ReportCard key={report.id} report={report} />
                 ))
             :
-            <h1>  Não há reports </h1>
+            <h1>  Nenhum report </h1>
             }
            
         </StyledListAllReports>

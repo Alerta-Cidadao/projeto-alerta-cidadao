@@ -62,7 +62,7 @@ export const ReportCard = ({ report }: IReportProp) => {
                     </p>
                 )}
                 {report.img && <img className="userImage" src={report.img} alt="" />}
-                <p>{report.description}</p>
+                <div className="report-description">{report.description}</div>
             </div>
             <img className="trashButton" src={TrashButton} onClick={() => deleteReport(report.id)} />
         </StyledReportCard>

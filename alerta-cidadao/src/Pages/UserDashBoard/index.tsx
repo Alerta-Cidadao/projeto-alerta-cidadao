@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { ModalDelete } from "../../Components/ModalDelete";
+import { UserCard } from "../../Components/UserCard";
 import { UserReportList } from "../../Components/UserReportsList";
 import { UserContext } from "../../Context/userContext";
 import { StyledUserDashBoard } from "./style";
+import { FaRegSun } from "react-icons/fa";
 
 export const UserDashBoardPage = () => {
     const { modalDelete, setModalDelete } = useContext(UserContext);
@@ -10,32 +13,35 @@ export const UserDashBoardPage = () => {
         "container__user-dashboard"
     );
 
+    const toggleModalDashboardList = () => {
+        dashboardVisibility == "container__user-dashboard-hidden"
+            ? setDashboardVisibility("container__user-dashboard")
+            : setDashboardVisibility("container__user-dashboard-hidden");
+    };
     return (
         <StyledUserDashBoard>
+            <UserCard />
             {modalDelete ? <ModalDelete /> : null}
             <UserReportList />
 
-            <button className="btn-config"
-                onClick={() =>
-                    dashboardVisibility == "container__user-dashboard-hidden"
-                        ? setDashboardVisibility("container__user-dashboard")
-                        : setDashboardVisibility(
-                              "container__user-dashboard-hidden"
-                          )
-                }
-            > Configurações
-                {" "}
+            <button
+                className="btn-config"
+                onClick={() => toggleModalDashboardList()}
+            >
+                <FaRegSun color="#FFF" size={30} />
             </button>
             <div className={dashboardVisibility}>
-                <h2> Configurações da conta: </h2>
-                <button> Atualizar informações </button>
-                <button> Meus posts </button>
-                <button> Reações </button>
-                <button> Notificações </button>
-                <button onClick={() => setModalDelete(true)}>
-                    {" "}
-                    Deletar conta
-                </button>
+                <div className="content-dashboard">
+                    <p onClick={() => toggleModalDashboardList()} className="close-modal"> x</p>
+                    <h2> Configurações da conta: </h2>
+                    <Link to=''> Atualizar informações </Link>
+                    <Link to=''> Meus posts </Link>
+                    <Link to=''> Notificações </Link>
+                    <button onClick={() => setModalDelete(true)}>
+                        {" "}
+                        Deletar conta
+                    </button>
+                </div>
             </div>
         </StyledUserDashBoard>
     );
