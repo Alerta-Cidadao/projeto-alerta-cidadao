@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@mui/material";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ICommentFormData, IReport } from "../../Context/@types";
+import { ICommentFormData } from "../../Context/@types";
 import { Input } from "../Input";
 import { StyledCommentForm } from "./style";
 import { FaPaperPlane } from "react-icons/fa";
@@ -23,6 +23,7 @@ export const CommentForm = ({
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<ICommentFormData>({
         resolver: yupResolver(schemaComment),
@@ -31,6 +32,7 @@ export const CommentForm = ({
 
     const submitComment: SubmitHandler<ICommentFormData> = (formData) => {
         handleSubmitComment(formData);
+        reset();
     };
 
     return (
@@ -42,7 +44,7 @@ export const CommentForm = ({
                 error={errors.body}
                 multiline={true}
                 rows={3}
-                />
+            />
             <Button type="submit" variant="contained">
                 {" "}
                 <FaPaperPlane />{" "}

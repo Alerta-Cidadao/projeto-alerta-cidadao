@@ -24,6 +24,7 @@ export interface IReport {
 }
 
 export interface IComment {
+    user: IUser;
     body: string;
     id: number;
     reportId: number;

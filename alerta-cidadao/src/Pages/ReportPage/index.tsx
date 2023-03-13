@@ -23,7 +23,9 @@ export const ReportPage = () => {
 
     const getCommentsOfSpecificReport = async () => {
         try {
-            const response = await baseURL.get(`/reports/${reportId}/comments`);
+            const response = await baseURL.get(
+                `/reports/${reportId}/comments?_expand=user`
+            );
             setComments(response.data);
         } catch (error) {
             toast.error("error");
@@ -33,7 +35,7 @@ export const ReportPage = () => {
     useEffect(() => {
         getReportData();
         getCommentsOfSpecificReport();
-    }, []);
+    }, [comments]);
 
     const handleSubmitComment = async (formData: ICommentFormData) => {
         const token = localStorage.getItem("@USERTOKEN");
@@ -52,7 +54,7 @@ export const ReportPage = () => {
                 autoClose: 3000,
                 closeOnClick: true,
             });
-          
+
             setComments([...comments, response.data]);
         } catch (error) {
             toast.update(toastNewReport, {
@@ -65,18 +67,52 @@ export const ReportPage = () => {
         }
     };
 
+    const deleteComment = async (commentId: number) => {
+        const token = localStorage.getItem("@USERTOKEN");
+
+        const toastNewReport = toast.loading("Efetuando comentário");
+        try {
+            const response = await baseURL.delete(`/comments/${commentId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            toast.update(toastNewReport, {
+                render: "Comentário deletado!",
+                type: "success",
+                isLoading: false,
+                autoClose: 3000,
+                closeOnClick: true,
+            });
+
+            setComments([...comments, response.data]);
+        } catch (error) {
+            toast.update(toastNewReport, {
+                render: "Erro ao deletar o comentário",
+                type: "error",
+                isLoading: false,
+                autoClose: 3000,
+                closeOnClick: true,
+            });
+        }
+    };
+
     return (
         <StyledReportPage>
             {report && <ReportCard report={report} />}
-            {comments &&
-                comments.map((comment: IComment) => (
-                    <CommentUl>
-                        <li>
-                        <p key={comment.id}> {comment.body} </p>
-                        </li>
-                    </CommentUl>
-                    
-                ))}
+            {comments.length > 0 ? (
+                <ul>
+                    {comments.map((comment: IComment) => (
+                        <CommentUl key={crypto.randomUUID()}>
+                            <h3> {comment?.user?.name}</h3>
+                            <p> {comment.body} </p>
+                            <button onClick={() => deleteComment(comment.id)}>
+                                Deletar
+                            </button>
+                        </CommentUl>
+                    ))}
+                </ul>
+            ) : null}
 
             <CommentForm
                 handleSubmitComment={handleSubmitComment}
