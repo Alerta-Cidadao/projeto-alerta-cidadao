@@ -13,5 +13,6 @@ export const UserDashBoardPage = () => {
             <UserReportList />
             <button onClick={() => setModalDelete(true)}>Deletar</button>
         </StyledUserDashBoard>
+        
     );
 };

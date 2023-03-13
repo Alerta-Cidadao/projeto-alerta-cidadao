@@ -11,7 +11,7 @@ export const StyledHomePage = styled.main`
     width: fit-content;
     padding-left: 18px;
     padding-right: 18px;
-    max-width: 98vw;
+    max-width:99vw;
     margin: 0 auto;
 
     form{

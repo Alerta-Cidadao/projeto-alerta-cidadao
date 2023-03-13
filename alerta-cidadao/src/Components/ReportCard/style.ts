@@ -5,8 +5,8 @@ export const StyledReportCard = styled.li`
     flex-direction: column;
     align-items: center;
 
-    min-width: 300px;
-    width: 50%;
+    max-width: 500px;
+    width: 100%;
     padding: 10px;
 
     background-color: var(--color-grey-900);
@@ -20,6 +20,7 @@ export const StyledReportCard = styled.li`
         border: 1px solid var(--color-grey-0);
     }
     img{
-        width: 90%;
+        width: 300px;
+        height: 350px;
     }
 `;
