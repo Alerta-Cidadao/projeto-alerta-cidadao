@@ -1,13 +1,10 @@
-import { Outlet } from 'react-router-dom'
-import { StyledUnloggedRoutes } from './style'
+import { Outlet } from "react-router-dom";
+import { StyledUnloggedRoutes } from "./style";
 
 export const UnloggedRoutes = () => {
-
-  
-  return (
-    <StyledUnloggedRoutes>
-        <Outlet/>
-    </StyledUnloggedRoutes>
-  )
-}
-
+    return (
+        <StyledUnloggedRoutes>
+            <Outlet />
+        </StyledUnloggedRoutes>
+    );
+};

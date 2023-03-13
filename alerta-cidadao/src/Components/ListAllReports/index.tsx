@@ -1,16 +1,22 @@
 import { useContext } from "react";
-import { UserContext } from "../../Context/userContext";
+import { ReportContext } from "../../Context/reportsContext";
 import { ReportCard } from "../ReportCard";
+import { SearchForm } from "../SearchForm";
 import { StyledListAllReports } from "./style";
 
 export const ListAllReports = () => {
-    const { filteredReports } = useContext(UserContext);
+    const { filteredReports } = useContext(ReportContext);
     return (
         <StyledListAllReports>
-            {filteredReports &&
+            <SearchForm/>
+           {filteredReports.length != 0 ?
                 filteredReports.map((report) => (
                     <ReportCard key={report.id} report={report} />
-                ))}
+                ))
+            :
+            <h1>  Nenhum report </h1>
+            }
+           
         </StyledListAllReports>
     );
 };

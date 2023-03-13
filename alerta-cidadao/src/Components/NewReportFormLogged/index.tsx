@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IReport } from "../../Context/@types";
+import { ReportContext } from "../../Context/reportsContext";
 import { UserContext } from "../../Context/userContext";
 import { Input } from "../Input";
 import { IMunicipio, IUf } from "../RegisterForm";
@@ -32,18 +33,26 @@ export const NewReportFormLogged = () => {
             .then((response) => setMunicipios(response.data));
     }, [selectedUF]);
 
-    const { handleSubmitNewReport, user } = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const { handleSubmitNewReport } = useContext(ReportContext);
+
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<IReport>({
         resolver: yupResolver(schemaNewReportFormLogged),
-        defaultValues: { userId: user?.id, name: user?.name, email: user?.email},
+        defaultValues: {
+            userId: user?.id,
+            name: user?.name,
+            email: user?.email,
+        },
     });
 
     const submitNewReport: SubmitHandler<IReport> = (formData) => {
         handleSubmitNewReport(formData);
+        reset();
     };
 
     return (
@@ -57,7 +66,7 @@ export const NewReportFormLogged = () => {
                 register={register("title")}
                 error={errors.title}
             />
-             <Input
+            <Input
                 label="Imagem"
                 type="text"
                 placeholder="Url da imagem"
