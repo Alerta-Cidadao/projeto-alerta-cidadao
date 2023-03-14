@@ -25,7 +25,7 @@ export const ReportCard = ({ report }: IReportProp) => {
                 },
             });
             toast.update(toastNewReport, {
-                render: "Comentário deletado!",
+                render: "Reclamação deletada!",
                 type: "success",
                 isLoading: false,
                 autoClose: 3000,
@@ -35,7 +35,7 @@ export const ReportCard = ({ report }: IReportProp) => {
             setReports([...reports, response.data]);
         } catch (error) {
             toast.update(toastNewReport, {
-                render: "Erro ao deletar o comentário",
+                render: "Erro ao deletar a reclamação",
                 type: "error",
                 isLoading: false,
                 autoClose: 3000,

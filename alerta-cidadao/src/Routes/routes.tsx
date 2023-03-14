@@ -6,7 +6,10 @@ import { NewReportPage } from "../Pages/NewReportPage";
 import { RegisterPage } from "../Pages/RegisterPage";
 import { ReportPage } from "../Pages/ReportPage";
 import { UnloggedRoutes } from "../Pages/UnloggedRoutes";
-import { UserDashBoardPage } from "../Pages/UserDashBoard";
+import { UserDashBoardPageAttUser } from "../Pages/UserDashBoardAttUser";
+import { UserDashBoardPageNotification } from "../Pages/UserDashBoardNotification";
+import { UserDashBoardPagePosts } from "../Pages/UserDashBoardPosts";
+import { UserDashBoardPageProfile } from "../Pages/UserDashboardProfile";
 
 export const AppRoutes = () => {
     return (
@@ -21,9 +24,20 @@ export const AppRoutes = () => {
             </Route>
 
             <Route element={<LoggedRoutes />}>
-                <Route
+            <Route
                     path="/dashboard/:userId"
-                    element={<UserDashBoardPage />}
+                    element={<UserDashBoardPageProfile />}/>
+                <Route
+                    path="/dashboard-posts/:userId"
+                    element={<UserDashBoardPagePosts />}
+                />
+                <Route
+                    path="/dashboard-att-user/:userId"
+                    element={<UserDashBoardPageAttUser />}
+                />
+                <Route
+                    path="/dashboard-notificaton/:userId"
+                    element={<UserDashBoardPageNotification />}
                 />
             </Route>
         </Routes>

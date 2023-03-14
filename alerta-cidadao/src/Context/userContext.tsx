@@ -17,11 +17,7 @@ interface IUserContext {
     deleteUser: () => Promise<void>;
     modalDelete: boolean;
     setModalDelete: React.Dispatch<React.SetStateAction<boolean>>;
-    updateUser: (
-        userId: string,
-        formData: IUser,
-        token: string
-    ) => Promise<void>;
+    handleUpdateUser:(formData:any) => Promise<void>;
     modalUpdate: boolean;
     setModalUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -145,11 +141,10 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         }
     };
 
-    const updateUser = async (
-        userId: string,
-        formData: IUser,
-        token: string
-    ) => {
+    const handleUpdateUser = async (formData:any) => {
+        const userId = localStorage.getItem("@USERID");
+        const token = localStorage.getItem("@USERTOKEN");
+
         const toastPerfilMod = toast.loading("Atualizando suas informações");
         try {
             const response = await baseURL.patch(`/users/${userId}`, formData, {
@@ -188,7 +183,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
                 deleteUser,
                 modalDelete,
                 setModalDelete,
-                updateUser,
+                handleUpdateUser,
                 modalUpdate,
                 setModalUpdate,
             }}
