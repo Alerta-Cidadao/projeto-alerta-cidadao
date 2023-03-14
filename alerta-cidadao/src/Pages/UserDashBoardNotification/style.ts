@@ -5,10 +5,20 @@ export const StyledUserDashBoard = styled.div`
 
     max-width: 98vw;
     
+    h1{
+        color: var(--color-grey-100);
+        font-family: var(--font-weight-regular);
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-family);
     .btn-config{
         position: absolute;
         right: 20px;
-        top: 3.8vh;
+        top: 4vh;
         z-index: 2;
 
         background-color: transparent;
@@ -24,8 +34,6 @@ export const StyledUserDashBoard = styled.div`
         display: none;
     }
     .container__user-dashboard {
-        
-        
         position: absolute;
         top: 0;
         left: 0;
@@ -70,8 +78,10 @@ export const StyledUserDashBoard = styled.div`
 
         font-family: var(--font-family);
         color: var(--color-grey-100);
-        width: fit-content;
+        width: 320px;
+        max-width: 98%;
         padding: 1rem;
+        border-radius: 5px;
 
         background-color: var(--color-grey-900);
 
@@ -82,4 +92,15 @@ export const StyledUserDashBoard = styled.div`
             cursor: pointer;
         }
     }
+
+    @media (max-width:767px) {
+     .btn-config{
+        
+
+        position: absolute;
+        right: 80px;
+        top: 3.15vh;
+     }   
+    }
+ 
 `;
