@@ -24,6 +24,7 @@ interface IUserContext {
     ) => Promise<void>;
     modalUpdate: boolean;
     setModalUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+    
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -145,6 +146,8 @@ export const UserProvider = ({ children }: IChildrenProps) => {
         }
     };
 
+
+
     const updateUser = async (
         userId: string,
         formData: IUser,
@@ -177,6 +180,7 @@ export const UserProvider = ({ children }: IChildrenProps) => {
             });
         }
     };
+
 
     return (
         <UserContext.Provider

@@ -9,8 +9,9 @@ import { FaRegSun } from "react-icons/fa";
 import { ModalUpdate } from "../../Components/ModalUpdate";
 
 export const UserDashBoardPage = () => {
-    const { modalDelete, setModalDelete, modalUpdate } =
+    const { modalDelete, setModalDelete, modalUpdate, setModalUpdate } =
         useContext(UserContext);
+        
     const [dashboardVisibility, setDashboardVisibility] = useState(
         "container__user-dashboard"
     );
@@ -20,6 +21,12 @@ export const UserDashBoardPage = () => {
             ? setDashboardVisibility("container__user-dashboard")
             : setDashboardVisibility("container__user-dashboard-hidden");
     };
+
+    const handleDeleteAccountClick = () => {
+        setModalDelete(true);
+        setDashboardVisibility("container__user-dashboard-hidden");
+      }
+
     return (
         <StyledUserDashBoard>
             <UserCard />
@@ -43,15 +50,15 @@ export const UserDashBoardPage = () => {
                         x
                     </p>
                     <h2> Configurações da conta: </h2>
-                    <Link to=""> Atualizar informações </Link>
-                    <Link to=""> Meus posts </Link>
-                    <Link to=""> Notificações </Link>
-                    <button onClick={() => setModalDelete(true)}>
+                    <button onClick={()=> setModalUpdate(true)}> Atualizar informações </button>
+                    <button onClick={() => toggleModalDashboardList()}> Meus posts </button>
+                    <button onClick={handleDeleteAccountClick}>
                         {" "}
                         Deletar conta
                     </button>
                 </div>
             </div>
         </StyledUserDashBoard>
+        
     );
 };

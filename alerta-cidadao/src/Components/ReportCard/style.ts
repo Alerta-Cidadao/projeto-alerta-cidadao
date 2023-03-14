@@ -4,6 +4,7 @@ export const StyledReportCard = styled.li`
     display: flex;
     gap: 15px;
 
+    max-width: 500px;
     width: 100%;
     padding: 10px;
 
@@ -30,12 +31,15 @@ export const StyledReportCard = styled.li`
         background-color: var(--color-grey-300);
         border: 1px solid var(--color-grey-0);
     }
-
-    .trashButton{
-        cursor: pointer;
+    .userImage{
+        width: 300px;
+        height: 350px;
+        margin-left: 90px;
     }
-
-    .userImage {
-        width: 90%;
+    .trashButton{
+        width: 90px;
+height: 60px;
     }
 `;
+
+
