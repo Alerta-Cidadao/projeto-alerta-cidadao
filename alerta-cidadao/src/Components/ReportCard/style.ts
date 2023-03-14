@@ -33,6 +33,6 @@ export const StyledReportCard = styled.li`
     }
     img{
         width: 300px;
-        height: 350px;
+        height: 50px;
     }
 `;

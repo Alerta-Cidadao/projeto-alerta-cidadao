@@ -9,8 +9,9 @@ import { FaRegSun } from "react-icons/fa";
 import { ModalUpdate } from "../../Components/ModalUpdate";
 
 export const UserDashBoardPage = () => {
-    const { modalDelete, setModalDelete, modalUpdate } =
+    const { modalDelete, setModalDelete, modalUpdate, setModalUpdate } =
         useContext(UserContext);
+        
     const [dashboardVisibility, setDashboardVisibility] = useState(
         "container__user-dashboard"
     );
@@ -49,8 +50,8 @@ export const UserDashBoardPage = () => {
                         x
                     </p>
                     <h2> Configurações da conta: </h2>
-                    <Link to=""> Atualizar informações </Link>
-                    <Link to=""> Meus posts </Link>
+                    <button onClick={()=> setModalUpdate(true)}> Atualizar informações </button>
+                    <button onClick={() => toggleModalDashboardList()}> Meus posts </button>
                     <Link to=""> Notificações </Link>
                     <button onClick={handleDeleteAccountClick}>
                         {" "}

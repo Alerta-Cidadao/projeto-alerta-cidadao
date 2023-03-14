@@ -24,6 +24,7 @@ interface IUserContext {
     ) => Promise<void>;
     modalUpdate: boolean;
     setModalUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+    
 }
 
 export const UserContext = createContext({} as IUserContext);
