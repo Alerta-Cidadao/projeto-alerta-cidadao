@@ -7,7 +7,7 @@ import { IRegisterFormData } from "../../Context/@types";
 import { UserContext } from "../../Context/userContext";
 import { schemaRegisterForm } from "../RegisterForm/schema";
 import { StyledRegisterForm, StyledSelect } from "../RegisterForm/style";
-import { DivContainer } from "./style";
+import { DivContainer,BtnCloseModalUp } from "./style";
 
 
 export interface IUf {
@@ -130,11 +130,11 @@ export function ModalUpdate() {
                     </StyledSelect>
                 </FormControl>
             </div>
-            <Button type="submit" variant="contained" onClick={()=>{updateUser}}>
+            <Button  type="submit" variant="contained" onClick={()=>{updateUser}}>
                 Cadastrar
             </Button>
         </StyledRegisterForm>
-            <button onClick={() => setModalUpdate(false)}>Cancelar</button>
+            <BtnCloseModalUp onClick={() => setModalUpdate(false)}>X</BtnCloseModalUp>
         </DivContainer>
     );
     

@@ -52,7 +52,6 @@ export const UserDashBoardPage = () => {
                     <h2> Configurações da conta: </h2>
                     <button onClick={()=> setModalUpdate(true)}> Atualizar informações </button>
                     <button onClick={() => toggleModalDashboardList()}> Meus posts </button>
-                    <Link to=""> Notificações </Link>
                     <button onClick={handleDeleteAccountClick}>
                         {" "}
                         Deletar conta

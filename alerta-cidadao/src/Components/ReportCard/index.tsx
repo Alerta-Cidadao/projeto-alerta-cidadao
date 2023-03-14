@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 import { IReport } from "../../Context/@types";
 import { ReportContext } from "../../Context/reportsContext";
 import { baseURL } from "../../Services/fakeApi";
-import { StyledReportCard } from "./style";
 import TrashButton from "../../assets/TrashButton.svg"
+import { StyledReportCard } from "./style";
 
 export interface IReportProp {
     report: IReport;

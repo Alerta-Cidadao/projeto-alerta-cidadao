@@ -12,3 +12,12 @@ export const DivContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+
+export const BtnCloseModalUp = styled.button`
+position: relative;
+bottom: 130px;
+background: transparent;
+color: white;
+border: none;
+right: 40px;
+`

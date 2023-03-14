@@ -31,8 +31,15 @@ export const StyledReportCard = styled.li`
         background-color: var(--color-grey-300);
         border: 1px solid var(--color-grey-0);
     }
-    img{
+    .userImage{
         width: 300px;
-        height: 50px;
+        height: 350px;
+        margin-left: 90px;
+    }
+    .trashButton{
+        width: 90px;
+height: 60px;
     }
 `;
+
+
