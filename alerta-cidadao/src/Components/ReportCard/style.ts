@@ -4,10 +4,7 @@ export const StyledReportCard = styled.li`
     display: flex;
     gap: 15px;
 
-<<<<<<< HEAD
     max-width: 500px;
-=======
->>>>>>> 5193eddfa268ebffe53918b379498a5b50993501
     width: 100%;
     padding: 10px;
 
@@ -34,18 +31,8 @@ export const StyledReportCard = styled.li`
         background-color: var(--color-grey-300);
         border: 1px solid var(--color-grey-0);
     }
-<<<<<<< HEAD
     img{
         width: 300px;
         height: 350px;
-=======
-
-    .trashButton{
-        cursor: pointer;
-    }
-
-    .userImage {
-        width: 90%;
->>>>>>> 5193eddfa268ebffe53918b379498a5b50993501
     }
 `;

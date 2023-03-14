@@ -6,9 +6,11 @@ import { UserReportList } from "../../Components/UserReportsList";
 import { UserContext } from "../../Context/userContext";
 import { StyledUserDashBoard } from "./style";
 import { FaRegSun } from "react-icons/fa";
+import { ModalUpdate } from "../../Components/ModalUpdate";
 
 export const UserDashBoardPage = () => {
-    const { modalDelete, setModalDelete } = useContext(UserContext);
+    const { modalDelete, setModalDelete, modalUpdate } =
+        useContext(UserContext);
     const [dashboardVisibility, setDashboardVisibility] = useState(
         "container__user-dashboard"
     );
@@ -18,10 +20,17 @@ export const UserDashBoardPage = () => {
             ? setDashboardVisibility("container__user-dashboard")
             : setDashboardVisibility("container__user-dashboard-hidden");
     };
+
+    const handleDeleteAccountClick = () => {
+        setModalDelete(true);
+        setDashboardVisibility("container__user-dashboard-hidden");
+      }
+
     return (
         <StyledUserDashBoard>
             <UserCard />
             {modalDelete ? <ModalDelete /> : null}
+            {modalUpdate ? <ModalUpdate /> : null}
             <UserReportList />
 
             <button
@@ -32,12 +41,18 @@ export const UserDashBoardPage = () => {
             </button>
             <div className={dashboardVisibility}>
                 <div className="content-dashboard">
-                    <p onClick={() => toggleModalDashboardList()} className="close-modal"> x</p>
+                    <p
+                        onClick={() => toggleModalDashboardList()}
+                        className="close-modal"
+                    >
+                        {" "}
+                        x
+                    </p>
                     <h2> Configurações da conta: </h2>
-                    <Link to=''> Atualizar informações </Link>
-                    <Link to=''> Meus posts </Link>
-                    <Link to=''> Notificações </Link>
-                    <button onClick={() => setModalDelete(true)}>
+                    <Link to=""> Atualizar informações </Link>
+                    <Link to=""> Meus posts </Link>
+                    <Link to=""> Notificações </Link>
+                    <button onClick={handleDeleteAccountClick}>
                         {" "}
                         Deletar conta
                     </button>

@@ -11,8 +11,8 @@ export interface IUser {
 export interface IReport {
     title: string;
     description: string;
-    state:string;
-    city:string;
+    state: string;
+    city: string;
     name?: string;
     img?: string;
     date: string;
@@ -20,7 +20,7 @@ export interface IReport {
     since?: string;
     email?: string;
     userId: number | undefined | null;
-    id:number;
+    id: number;
 }
 
 export interface IComment {
