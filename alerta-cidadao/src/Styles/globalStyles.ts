@@ -2,22 +2,28 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
-        --color-primary: #FF577F;
-        --color-primary-focus: #FF427F;
-        --color-primary-negative:#59323F;
-        --color-secondary:#EB5757;
-        --color-grey-4:  #121214; 
-        --color-grey-3: #212529;
-        --color-grey-2: #343B41;
-        --color-grey-1:#868E96;
-        --color-grey-0:#F8F9FA;
+        --color-primary-darker:#591515;
+        --color-primary:#8C251C;
+        --color-secondary:#F25050;
+        --color-primary-lighter:#F2958C;
+        
+        --color-grey-900:#121214; 
+        --color-grey-700:#212529;
+        --color-grey-700-opacity: rgba(33, 37, 41, 0.9);
+        --color-grey-500:#343B41;
+        --color-grey-300:#868E96;
+        --color-grey-100:#F8F9FA;
+
+        --color-grey-0:#FFFFFF;
+
+        --border-radius-default:5px;
         --color-negative:#E83F5B;
         --color-warning:#FFCD07;
-        --color-succes:#3FE864;
+        --color-success:#3FE864;
         --color-information:#155BCB;
         --radius-default: 0.5rem;
         
-        --font-family: "Inter", sans-serif;
+        --font-family: "Roboto", sans-serif;
     
         --font-size-big:1.125rem;
         --font-size-medium:1rem;
@@ -28,4 +34,11 @@ export const GlobalStyles = createGlobalStyle`
         --font-weight-medium:600;
         --font-weight-bold:800;
     }
+
+    .MuiList-root{
+    background-color: var(--color-primary-darker) !important;
+}
+.MuiButtonBase-root{
+    background-color: var(--color-primary-darker) !important;
+}
     `;

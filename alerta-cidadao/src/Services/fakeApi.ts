@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const baseURL = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "https://fake-api-alerta-cidadao.onrender.com",
     timeout: 5000,
 })
