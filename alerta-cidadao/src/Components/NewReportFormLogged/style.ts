@@ -10,6 +10,9 @@ export const StyledReportFormLogged = styled.form`
     border-radius: var(--border-radius-default);
     font-family: var(--font-family);
 
+    width: 30rem;
+    max-width: 98%;
+
     p{
         color: var(--color-secondary);
     }
@@ -19,5 +22,6 @@ export const StyledReportFormLogged = styled.form`
     .select-location{
         display: flex;
         gap: 0.5rem;
+        
     }
 `;

@@ -46,8 +46,7 @@ export const CommentForm = ({
                 rows={3}
             />
             <Button type="submit" variant="contained">
-                {" "}
-                <FaPaperPlane />{" "}
+                <FaPaperPlane />
             </Button>
         </StyledCommentForm>
     );

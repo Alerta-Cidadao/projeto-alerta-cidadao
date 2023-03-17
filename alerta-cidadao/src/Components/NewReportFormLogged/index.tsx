@@ -57,7 +57,7 @@ export const NewReportFormLogged = () => {
 
     return (
         <StyledReportFormLogged onSubmit={handleSubmit(submitNewReport)}>
-            <h1> Titulo do form de reclamação </h1>
+            <h1> Faça aqui seu relato: </h1>
 
             <Input
                 label="Titulo"
