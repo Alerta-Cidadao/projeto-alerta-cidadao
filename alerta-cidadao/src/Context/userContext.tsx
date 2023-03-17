@@ -152,8 +152,8 @@ export const UserProvider = ({ children }: IChildrenProps) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response.data);
-            //setUser(response.data);
+            setUser(response.data);
+            
             toast.update(toastPerfilMod, {
                 render: "Informações atualizadas",
                 type: "success",

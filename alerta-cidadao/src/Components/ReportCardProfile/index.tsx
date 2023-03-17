@@ -5,13 +5,13 @@ import { IReport } from "../../Context/@types";
 import { ReportContext } from "../../Context/reportsContext";
 import { baseURL } from "../../Services/fakeApi";
 import { StyledReportCard } from "./style";
-import TrashButton from "../../assets/TrashButton.svg";
+import { FaTrashAlt } from "react-icons/fa";
 
 export interface IReportProp {
     report: IReport;
 }
 
-export const ReportCard = ({ report }: IReportProp) => {
+export const ReportCardProfile = ({ report }: IReportProp) => {
     const { reports, setReports } = useContext(ReportContext);
 
     const deleteReport = async (reportId: number) => {
@@ -51,7 +51,7 @@ export const ReportCard = ({ report }: IReportProp) => {
     };
 
     return (
-        <StyledReportCard onClick={() => goToReportPage()}>
+        <StyledReportCard>
             <h1> {report.title} </h1>
             <p> {report.name && report.name} </p>
             {report.city && (
@@ -63,6 +63,13 @@ export const ReportCard = ({ report }: IReportProp) => {
                 <img className="userImage" src={report.img} alt="" />
             )}
             <div className="report-description">{report.description}</div>
+
+            <button className="btn-delete-report">
+                <FaTrashAlt color="#FFF" size={30} />
+            </button>
+            <button onClick={() => goToReportPage()}>
+                Acessar a pagina do relato!
+            </button>
         </StyledReportCard>
     );
 };
