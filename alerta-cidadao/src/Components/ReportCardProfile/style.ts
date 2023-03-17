@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StyledReportCard = styled.li`
     display: flex;
+    gap: 25px;
     flex-direction: column;
-    gap: 15px;
 
     width: 100%;
     padding: 10px;
@@ -14,8 +14,8 @@ export const StyledReportCard = styled.li`
     border-radius: var(--border-radius-default);
     border: 1px solid transparent;
     
-    cursor: pointer;
-
+    position: relative;
+    
     h1::first-letter{
         text-transform: uppercase;
     }
@@ -25,20 +25,13 @@ export const StyledReportCard = styled.li`
     .report-description::first-letter{
         text-transform: uppercase;
     }
-
-    img{
-       width: 50%;
-        margin: 0 auto;
+    .btn-delete-report{
+        height: fit-content;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 0;
     }
-
-    &&:hover {
-        border: 1px solid var(--color-grey-0);
-    }
-
-    .trashButton{
-        cursor: pointer;
-    }
-
     .userImage {
         width: 90%;
     }

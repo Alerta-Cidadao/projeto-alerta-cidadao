@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ModalDelete } from "../../Components/ModalDelete";
-import { UserCard } from "../../Components/UserCard";
-import { UserReportList } from "../../Components/UserReportsList";
 import { UserContext } from "../../Context/userContext";
 import { StyledUserDashBoard } from "./style";
 import { FaRegSun } from "react-icons/fa";
@@ -24,7 +22,11 @@ export const UserDashBoardPageNotification = () => {
     };
     return (
         <StyledUserDashBoard>
-            <h1> NOTIFICAÇÕES SOBRE OS REPORTS DO USER, SE HOUVE NOTIFICAÇÃO AO RESPONSÁVEL, COMENTÁRIOS... </h1>
+            
+            <div className="container-no-notifications">
+                <h1> Não há novas notificações sobre seus relatos. </h1>
+                <button> Receber via email </button>
+            </div>
 
             <button
                 className="btn-config"

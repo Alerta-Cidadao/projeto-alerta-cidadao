@@ -7,16 +7,15 @@ import { StyledSearchForm } from "./style";
 export const SearchForm = () => {
     const { setFilterReports } = useContext(ReportContext);
 
-    const handleFilterSubmit = (event: any, teste: any) => {
+    const handleFilterSubmit = (event: any) => {
         event.preventDefault();
-        console.log(teste);
     };
 
     return (
         <StyledSearchForm
             action=""
             onSubmit={(event) =>
-                handleFilterSubmit(event, event.currentTarget.value)
+                handleFilterSubmit(event)
             }
         >
             <Input

@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ModalDelete } from "../../Components/ModalDelete";
-import { UserCard } from "../../Components/UserCard";
-import { UserReportList } from "../../Components/UserReportsList";
 import { UserContext } from "../../Context/userContext";
 import { StyledUserDashBoard } from "./style";
 import { FaRegSun } from "react-icons/fa";
+import { UserReportListProfile } from "../../Components/UserReportsListProfile";
+
 
 export const UserDashBoardPagePosts = () => {
-    const { modalDelete, setModalDelete } =
-        useContext(UserContext);
+    const { modalDelete, setModalDelete, } = useContext(UserContext);
+   
     const [dashboardVisibility, setDashboardVisibility] = useState(
         "container__user-dashboard-hidden"
     );
@@ -26,7 +26,7 @@ export const UserDashBoardPagePosts = () => {
     return (
         <StyledUserDashBoard>
             
-            <UserReportList />
+            <UserReportListProfile/>
 
             <button
                 className="btn-config"

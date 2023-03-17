@@ -11,6 +11,7 @@ export const ReportPage = () => {
     const [report, setReport] = useState({} as IReport);
     const [comments, setComments] = useState([] as IComment[]);
     const { reportId } = useParams();
+    const [userId, setUserId] = useState('0')
 
     const getReportData = async () => {
         try {
@@ -96,6 +97,15 @@ export const ReportPage = () => {
             });
         }
     };
+    
+    useEffect(()=>{
+        const localUserId = localStorage.getItem("@USERID");
+        if(localUserId)
+        {
+            console.log(typeof localUserId)
+            setUserId(localUserId)
+        }
+    },[])
 
     return (
         <StyledReportPage>
@@ -106,9 +116,10 @@ export const ReportPage = () => {
                         <CommentUl key={crypto.randomUUID()}>
                             <h3> {comment?.user?.name}</h3>
                             <p> {comment.body} </p>
+                           {/*  {comment?.userId == userId(
                             <button onClick={() => deleteComment(comment.id)}>
                                 Deletar
-                            </button>
+                            </button>)} */}
                         </CommentUl>
                     ))}
                 </ul>
