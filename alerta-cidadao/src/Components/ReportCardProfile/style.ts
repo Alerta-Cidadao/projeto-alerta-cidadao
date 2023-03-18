@@ -15,7 +15,9 @@ export const StyledReportCard = styled.li`
     border: 1px solid transparent;
     
     position: relative;
-    
+    img{
+        margin: 0 auto;
+    }
     h1::first-letter{
         text-transform: uppercase;
     }
@@ -34,5 +36,11 @@ export const StyledReportCard = styled.li`
     }
     .userImage {
         width: 90%;
+    }
+    .go-to-report{
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        right: 40px;
     }
 `;

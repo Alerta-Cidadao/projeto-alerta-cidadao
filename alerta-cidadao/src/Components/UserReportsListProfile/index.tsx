@@ -26,20 +26,25 @@ export const UserReportListProfile = () => {
             }
         };
         getUserReports();
-    }, []);
+    }, [userReports]);
 
     return (
         <StyledUserReportsList>
-        {userReports.length>0 ?
-        (userReports.map((report) => (
-            <ReportCardProfile key={report.id} report={report} />
-        )))    
-        :
-        <div className="container-no-reports">
-            <h1> Você ainda não tem relatos!</h1>
-            <Link to="/new-report"> Faça agora! </Link>
-        </div>
-        }
+            {userReports.length > 0 ? (
+                userReports.map((report) => (
+                    <ReportCardProfile
+                        key={report.id}
+                        report={report}
+                        setUserReports={setUserReports}
+                        userReports={userReports}
+                    />
+                ))
+            ) : (
+                <div className="container-no-reports">
+                    <h1> Você ainda não tem relatos!</h1>
+                    <Link to="/new-report"> Faça agora! </Link>
+                </div>
+            )}
         </StyledUserReportsList>
     );
 };

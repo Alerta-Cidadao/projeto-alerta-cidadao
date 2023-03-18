@@ -5,13 +5,15 @@ import { IReport } from "../../Context/@types";
 import { ReportContext } from "../../Context/reportsContext";
 import { baseURL } from "../../Services/fakeApi";
 import { StyledReportCard } from "./style";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaTrashAlt } from "react-icons/fa";
 
 export interface IReportProp {
     report: IReport;
+    setUserReports:any;
+    userReports:any;
 }
 
-export const ReportCardProfile = ({ report }: IReportProp) => {
+export const ReportCardProfile = ({ report, setUserReports,userReports}: IReportProp) => {
     const { reports, setReports } = useContext(ReportContext);
 
     const deleteReport = async (reportId: number) => {
@@ -33,6 +35,7 @@ export const ReportCardProfile = ({ report }: IReportProp) => {
             });
 
             setReports([...reports, response.data]);
+            setUserReports([userReports])
         } catch (error) {
             toast.update(toastNewReport, {
                 render: "Erro ao deletar a reclamação",
@@ -64,12 +67,14 @@ export const ReportCardProfile = ({ report }: IReportProp) => {
             )}
             <div className="report-description">{report.description}</div>
 
-            <button className="btn-delete-report">
+            <button className="btn-delete-report" onClick={() => deleteReport(report.id)}>
                 <FaTrashAlt color="#FFF" size={30} />
             </button>
-            <button onClick={() => goToReportPage()}>
-                Acessar a pagina do relato!
+
+            <button onClick={() => goToReportPage()} className="go-to-report">
+             <FaExternalLinkAlt color="#fff" size={30}/>
             </button>
+            
         </StyledReportCard>
     );
 };
