@@ -13,7 +13,7 @@ export const StyledTextField = styled(TextField)`
     color: red;
     border-radius: 5px;
 
-    overflow: hidden;
+   
 
     .MuiOutlinedInput-notchedOutline {
         border-color: var(--color-grey-0);

@@ -5,7 +5,6 @@ export const StyledReportCard = styled.li`
     flex-direction: column;
     gap: 15px;
 
-    width: 100%;
     padding: 10px;
 
     background-color: var(--color-grey-900);
@@ -13,6 +12,8 @@ export const StyledReportCard = styled.li`
     transition: 600ms;
     border-radius: var(--border-radius-default);
     border: 1px solid transparent;
+
+
     
     cursor: pointer;
 
@@ -41,5 +42,11 @@ export const StyledReportCard = styled.li`
 
     .userImage {
         width: 90%;
+    }
+    @media (max-width:805px) {
+        img{
+            width: fit-content;
+        }
+        
     }
 `;
