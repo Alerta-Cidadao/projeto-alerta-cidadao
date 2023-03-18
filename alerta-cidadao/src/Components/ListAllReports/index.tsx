@@ -14,7 +14,7 @@ export const ListAllReports = () => {
                     <ReportCard key={report.id} report={report} />
                 ))
             :
-            <h1>  Nenhum report </h1>
+            <h1>  Nenhum relato! </h1>
             }
            
         </StyledListAllReports>

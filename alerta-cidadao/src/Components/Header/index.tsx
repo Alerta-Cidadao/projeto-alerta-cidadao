@@ -34,11 +34,11 @@ export const Header = () => {
             </>
             {user ? (
                 <div className={visible}>
-                    <NavLogged />
+                    <NavLogged menuVisibility={menuVisibility}/>
                 </div>
             ) : (
                 <div className={visible}>
-                    <NavUnlogged />
+                    <NavUnlogged menuVisibility={menuVisibility}/>
                 </div>
             )}
             <div className="hamburger" onClick={() => menuVisibility()}>

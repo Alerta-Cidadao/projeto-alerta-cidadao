@@ -22,6 +22,5 @@ export const StyledReportFormLogged = styled.form`
     .select-location{
         display: flex;
         gap: 0.5rem;
-        
     }
 `;

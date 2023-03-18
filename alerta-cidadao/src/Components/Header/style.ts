@@ -69,6 +69,7 @@ border-bottom: 1px solid var(--color-grey-300);
        img {
         position: absolute;
         left: 3rem;
+        width: 60px;
        }
         .hamburger{
             color: var(--color-grey-100);
