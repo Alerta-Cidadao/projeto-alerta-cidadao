@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { FlagSpinner, MetroSpinner } from "react-spinners-kit";
 import { toast } from "react-toastify";
 import { CommentForm } from "../../Components/CommentForm";
 import { ReportCard } from "../../Components/ReportCard";
@@ -107,28 +108,37 @@ export const ReportPage = () => {
         }
     },[])
 
+    
     return (
         <StyledReportPage>
-            {report && <ReportCard report={report} />}
-            {comments.length > 0 ? (
-                <ul>
-                    {comments.map((comment: IComment) => (
-                        <CommentUl key={crypto.randomUUID()}>
-                            <h3> {comment?.user?.name}</h3>
-                            <p> {comment.body} </p>
-                           {/*  {comment?.userId == userId(
-                            <button onClick={() => deleteComment(comment.id)}>
-                                Deletar
-                            </button>)} */}
-                        </CommentUl>
-                    ))}
-                </ul>
-            ) : null}
+            {
+                report.img ?
+                <>
+                <ReportCard report={report} />
+                {comments.length > 0 ? (
+                    <ul>
+                        {comments.map((comment: IComment) => (
+                            <CommentUl key={crypto.randomUUID()}>
+                                <h3> {comment?.user?.name}</h3>
+                                <p> {comment.body} </p>
+                               {/*  {comment?.userId == userId(
+                                <button onClick={() => deleteComment(comment.id)}>
+                                    Deletar
+                                </button>)} */}
+                            </CommentUl>
+                        ))}
+                    </ul>
+                ) : null}
+    
+                <CommentForm
+                    handleSubmitComment={handleSubmitComment}
+                    idReport={reportId}
+                />
+                </>
+                :
+                <MetroSpinner />
 
-            <CommentForm
-                handleSubmitComment={handleSubmitComment}
-                idReport={reportId}
-            />
+            }
         </StyledReportPage>
     );
 };

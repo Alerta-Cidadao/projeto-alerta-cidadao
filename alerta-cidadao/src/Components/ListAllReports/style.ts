@@ -7,8 +7,10 @@ export const StyledListAllReports = styled.ul`
     gap: 1rem;
 
     background-color: var(--color-grey-700-opacity);
+
     width: 800px;
-    max-width: 98%;
+    max-width: 98vw;
+
     padding: 1rem;
 
     h1{

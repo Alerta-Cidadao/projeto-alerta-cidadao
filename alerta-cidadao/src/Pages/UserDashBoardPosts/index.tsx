@@ -6,7 +6,6 @@ import { StyledUserDashBoard } from "./style";
 import { FaRegSun } from "react-icons/fa";
 import { UserReportListProfile } from "../../Components/UserReportsListProfile";
 
-
 export const UserDashBoardPagePosts = () => {
     const { modalDelete, setModalDelete, } = useContext(UserContext);
    
@@ -22,12 +21,12 @@ export const UserDashBoardPagePosts = () => {
             : setDashboardVisibility("container__user-dashboard-hidden");
     };
 
-    console.log(userId)
+    
     return (
         <StyledUserDashBoard>
             
             <UserReportListProfile/>
-
+          
             <button
                 className="btn-config"
                 onClick={() => toggleModalDashboardList()}

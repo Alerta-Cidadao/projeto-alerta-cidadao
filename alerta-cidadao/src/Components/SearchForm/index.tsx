@@ -3,12 +3,14 @@ import { Input } from "../../Components/Input";
 import { FaSearch } from "react-icons/fa";
 import { ReportContext } from "../../Context/reportsContext";
 import { StyledSearchForm } from "./style";
+import { useNavigate } from "react-router-dom";
 
 export const SearchForm = () => {
     const { setFilterReports } = useContext(ReportContext);
-
+    const navigate = useNavigate()
     const handleFilterSubmit = (event: any) => {
         event.preventDefault();
+        navigate('/')
     };
 
     return (

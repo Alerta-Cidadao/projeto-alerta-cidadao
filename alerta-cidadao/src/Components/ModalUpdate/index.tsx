@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
 
 export function ModalUpdate() {
-    const { updateUser, setModalUpdate } = useContext(UserContext);
+    const { setModalUpdate } = useContext(UserContext);
 
     return (
         <div>

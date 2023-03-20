@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { MetroSpinner } from "react-spinners-kit";
 import { ReportContext } from "../../Context/reportsContext";
 import { ReportCard } from "../ReportCard";
 import { SearchForm } from "../SearchForm";
@@ -14,7 +15,7 @@ export const ListAllReports = () => {
                     <ReportCard key={report.id} report={report} />
                 ))
             :
-            <h1>  Nenhum report </h1>
+            <MetroSpinner/>
             }
            
         </StyledListAllReports>

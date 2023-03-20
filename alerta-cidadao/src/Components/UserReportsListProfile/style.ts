@@ -9,6 +9,8 @@ export const StyledUserReportsList = styled.div`
     max-width: 96%;
 
     margin: 1rem auto;
+    
+    font-family: var(--font-family);
 
     .container-no-reports {
         background-color: var(--color-grey-700);
